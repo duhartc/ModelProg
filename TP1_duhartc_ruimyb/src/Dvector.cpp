@@ -72,33 +72,39 @@ Dvector::Dvector(string str) {
      v = NULL;
   }
   else {
-    //on compte le nombre de lignes
-    unsigned int lines = count( 
-        istreambuf_iterator<char>( file ), 
-          istreambuf_iterator<char>(), 
-           '\n' ); 
-    cout << "nombre lignes:" << lines <<"fin ligne\n";
+    //on compte le nombre d'éléments
+    size_t nbElem = distance(istream_iterator<string>(file), 
+                             istream_iterator<string>());
+
+    //unsigned int lines = count( 
+    // istreambuf_iterator<char>( file ), 
+    //istreambuf_iterator<char>(), 
+    // '\n' ); 
+    cout << "nombre lignes:" << nbElem <<"fin ligne\n";
 
     //on crée le vecteur
-    vsize = lines;
+    vsize = nbElem;
     v = new double[vsize];
 
     //on retourne au début du fichier
-    file.seekg(0,ios::beg);
     file.clear();
+    file.seekg(0,ios::beg);
 
-    //on insère ces lignes dans le vecteur
+    //on insère ces éléments dans le vecteur
     string line;
     stringstream ssConvert;
     double convert;
-    lines = 0;
-    while (std::getline(file, line)) {
-      //cout << convert <<" "<<lines <<"\n";;
-      ssConvert << line;
-      ssConvert >> convert;
-      v[lines] = convert;
-      lines++;
-      ssConvert.clear();
+    string emptyLine = "";
+    nbElem = 0;
+    while (getline(file, line)) {
+      if (emptyLine.compare(line) != 0) {
+	ssConvert << line;
+	while (ssConvert >> convert) {
+	  v[nbElem] = convert;
+	  nbElem++;
+	}
+	ssConvert.clear();
+      }
     } 
   }
   file.close();

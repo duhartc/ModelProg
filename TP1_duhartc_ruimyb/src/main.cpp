@@ -45,7 +45,13 @@ int main()
   Dvector vFile1("tp1_test1.txt");
   vFile1.display(std::cout);
   std::cout<<"vFile2"<<"\n"; 
-  Dvector vFile2("tp1_test2.txt");
-  vFile2.display(std::cout);
+  //Dvector vFile2("tp1_test2.txt");
+  //vFile2.display(std::cout);
+  std::cout<<"vFileLignesVides"<<"\n";
+  Dvector vFile3("tp1_lignesvides.txt");
+  vFile3.display(std::cout);
+  std::cout<<"vFileEspace"<<"\n";
+  Dvector vFile4("tp1_espace.txt");
+  vFile4.display(std::cout);
   return(0);
 }
