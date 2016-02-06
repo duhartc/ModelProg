@@ -37,6 +37,15 @@ int main()
   //Cas 2
   Dvector x2 = Dvector(3, 1.); //on construit l'objet
   std::cout<<"x2"<<"\n";
-  x2.display(std::cout); 
+  x2.display(std::cout);
+  std::cout<<"vFile0"<<"\n"; 
+  Dvector vFile0("test0.txt");
+  vFile0.display(std::cout);
+  std::cout<<"vFile1"<<"\n"; 
+  Dvector vFile1("tp1_test1.txt");
+  vFile1.display(std::cout);
+  std::cout<<"vFile2"<<"\n"; 
+  Dvector vFile2("tp1_test2.txt");
+  vFile2.display(std::cout);
   return(0);
 }

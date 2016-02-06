@@ -2,6 +2,10 @@
 #include <cstddef> 
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <iterator>
+#include <algorithm>
+#include <sstream>
 using namespace std;
 
 Dvector::Dvector() 
@@ -59,3 +63,43 @@ Dvector::Dvector(const Dvector &vect) {
     v[i] = vect.v[i]; //copy
   }
 } 
+
+Dvector::Dvector(string str) {
+  ifstream file(str.c_str());
+  if (!file) {
+     //Dvector();
+     vsize = 0;
+     v = NULL;
+  }
+  else {
+    //on compte le nombre de lignes
+    unsigned int lines = count( 
+        istreambuf_iterator<char>( file ), 
+          istreambuf_iterator<char>(), 
+           '\n' ); 
+    cout << "nombre lignes:" << lines <<"fin ligne\n";
+
+    //on crée le vecteur
+    vsize = lines;
+    v = new double[vsize];
+
+    //on retourne au début du fichier
+    file.seekg(0,ios::beg);
+    file.clear();
+
+    //on insère ces lignes dans le vecteur
+    string line;
+    stringstream ssConvert;
+    double convert;
+    lines = 0;
+    while (std::getline(file, line)) {
+      //cout << convert <<" "<<lines <<"\n";;
+      ssConvert << line;
+      ssConvert >> convert;
+      v[lines] = convert;
+      lines++;
+      ssConvert.clear();
+    } 
+  }
+  file.close();
+}

@@ -1,6 +1,7 @@
 #ifndef DVECTOR
 #define DVECTOR
 #include <iostream>
+#include <string>
 
 class Dvector {
   //private by default
@@ -14,5 +15,6 @@ class Dvector {
   int size();
   void fillRandomly();
   Dvector(const Dvector & vect);
+  Dvector(std::string str);
 };
 #endif
