@@ -6,6 +6,7 @@
 #include <iterator>
 #include <algorithm>
 #include <sstream>
+#include <iomanip>
 using namespace std;
 
 Dvector::Dvector() 
@@ -33,7 +34,7 @@ Dvector::~Dvector() {
 void Dvector::display(ostream& str) {
   for (unsigned int i = 0; i < vsize ; i++) {
     //TODO affichage 2 décimales
-    str<<v[i]<<"\n";
+    str<< fixed << setprecision(2) << v[i]<<"\n";
   }
 }
 
