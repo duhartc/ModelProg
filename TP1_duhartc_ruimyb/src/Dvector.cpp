@@ -31,10 +31,21 @@ Dvector::~Dvector() {
   delete [] v;
 }
 
+unsigned int nbDecimal(double d){
+  string s_dec;
+  stringstream ssConvert;
+  ssConvert << d;
+  ssConvert >> s_dec;
+  return(s_dec.substr(s_dec.find(".") + 1).size());
+}
 void Dvector::display(ostream& str) {
   for (unsigned int i = 0; i < vsize ; i++) {
-    //TODO affichage 2 décimales
-    str<< fixed << setprecision(2) << v[i]<<"\n";
+    if (nbDecimal(v[i]) < 2) {
+      str << fixed << setprecision(2) << v[i]<<"\n";
+    }
+    else {
+      str << setprecision(nbDecimal(v[i])) << v[i] << "\n";
+    }
   }
 }
 
@@ -68,7 +79,6 @@ Dvector::Dvector(const Dvector &vect) {
 Dvector::Dvector(string str) {
   ifstream file(str.c_str());
   if (!file) {
-     //Dvector();
      vsize = 0;
      v = NULL;
   }
