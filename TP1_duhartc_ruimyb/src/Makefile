@@ -5,3 +5,6 @@ CXXFLAGS = -Wall -g
 
 $(PROG): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
+
+clean : 
+	rm -rf *.o
