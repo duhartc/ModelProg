@@ -1,0 +1,12 @@
+TP1
+
+Question 1 : 
+
+	 - Dvector x; x = Dvector (3, 1.);
+
+L'expression ci-dessus fait une affectation par copie. Le problème est que x et Dvector auront la meme adresse mémoire, ainsi lors de la libération, on obtient un "double free". 
+Pour résoudre ce problème, il conviendrait de surcharger l'opérateur "=" qui copierait la valeur de l'objet dans x.
+
+     	 - Dvector x = Dvector (3, 1.);
+
+L'expression ci-dessus utilise un constructeur par copie. Ce dernier ayant été surchargé, l'expression fonctionne correctement. Eneffet, on copie la taille puis chacun des membres du vecteur un par un dans un nouvel objet vecteur. 
