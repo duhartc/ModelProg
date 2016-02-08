@@ -9,4 +9,4 @@ Pour résoudre ce problème, il conviendrait de surcharger l'opérateur "=" qui 
 
      	 - Dvector x = Dvector (3, 1.);
 
-L'expression ci-dessus utilise un constructeur par copie. Ce dernier ayant été surchargé, l'expression fonctionne correctement. Eneffet, on copie la taille puis chacun des membres du vecteur un par un dans un nouvel objet vecteur. 
+L'expression ci-dessus utilise un constructeur par copie (implicitement). Ce dernier ayant été surchargé, l'expression fonctionne correctement. En effet, on copie la taille puis chacun des membres du vecteur un par un dans un nouvel objet vecteur. 
