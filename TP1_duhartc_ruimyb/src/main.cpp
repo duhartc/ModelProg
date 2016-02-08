@@ -20,7 +20,7 @@ int main()
     assert(vA.size() == 3);
     std::cout << "OK \n";
     
-    std::cout<<"vB : \n";
+    std::cout<<"vB : ";
     std::stringstream ss;  
     vB.display(ss); 
     assert(ss.str() == "1.00\n1.00\n1.00\n1.00\n1.00\n"); 
@@ -44,27 +44,36 @@ int main()
 
     //Cas 1 : incorrect sans surcharger =
     // fait une affectation par copie
+/*
+    Dvector x1;
+    x1 = Dvector(3,1.); 
+    std::cout<<"x1 :"<<std::endl;  
+    x1.display(std::cout); 
+    std::cout<<"Taille x1:"<<x1.size()<<"\n";
 
-    Dvector x1= Dvector(vA); //on retourne (affecte) l'objet su robjet existant
+*/
+    //on retourne (affecte) l'objet su robjet existant
     //Dvector(3,1.) et x1 ont le meme emplacement en mémoire
     //lors de la libération on fait donc un "double free"
 
-
-    std::cout<<"x1"<<"\n";
-    x1.display(std::cout);
-    std::cout<<"Taille x1:"<<x1.size()<<"\n";
-
-
+/*
     // pour eviter le "double free"
     x1 = vA; // on déplace x1 en mémoire par copy
     x1.display(std::cout);
     std::cout<<"Taille x1:"<<x1.size()<<"\n";
-
+*/
 
     //Cas 2
-    Dvector x2 = Dvector(3, 1.); //on construit l'objet
-    std::cout<<"x2"<<"\n";
+    Dvector x2 = Dvector(vA); //on construit l'objet
+    std::stringstream sss; 
+    x2.display(sss);
+    std::cout<<"x2 : ";  
+    assert(sss.str() == "0.00\n0.00\n0.00\n"); 
+    assert(x2.size() == 3);
+    std::cout<<"OK \n";   
+    std::cout<<"x2 :"<<"\n";
     x2.display(std::cout);
+
     std::cout<<"vFile0"<<"\n"; 
     Dvector vFile0("test0.txt");
     vFile0.display(std::cout);
