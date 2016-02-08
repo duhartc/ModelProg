@@ -12,7 +12,8 @@ all: doc
 $(DOCDIR)/html/documentation.html: $(DOCDIR)/Doxyfile $(CSOURCE) 
 	$(DOCC) $(DOCDIR)/Doxyfile
 
-doc: $(DOCDIR)/html/documentation.html
+doc: $(CSOURCE) 
+	doxygen Doxyfile
 
 clean:
 	rm -rf $(DOCDIR)
