@@ -16,4 +16,4 @@ docu: $(CSOURCE)
 	doxygen Doxyfile
 
 clean:
-	rm -rf $(DOCDIR)
+	rm -rf $(DOCDIR)/html/
