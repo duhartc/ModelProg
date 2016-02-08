@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -g
 
 REFDIR=.
 SRCDIR=$(REFDIR)/src
-DOCDIR=$(REFDIR)/doc
+DOCDIR=$(REFDIR)/docu
 CSOURCE = $(SRCDIR)/main.cpp $(SRCDIR)/Dvector.cpp
 
 all: doc 
@@ -12,7 +12,7 @@ all: doc
 $(DOCDIR)/html/documentation.html: $(DOCDIR)/Doxyfile $(CSOURCE) 
 	$(DOCC) $(DOCDIR)/Doxyfile
 
-doc: $(CSOURCE) 
+docu: $(CSOURCE) 
 	doxygen Doxyfile
 
 clean:
