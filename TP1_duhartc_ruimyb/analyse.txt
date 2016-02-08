@@ -4,7 +4,7 @@ Question 1 :
 
 	 - Dvector x; x = Dvector (3, 1.);
 
-L'expression ci-dessus fait une affectation par copie. Le problème est que x et Dvector auront la meme adresse mémoire, ainsi lors de la libération, on obtient un "double free". 
+L'expression ci-dessus fait une affectation par copie. Le problème est que x et Dvector(3, 1.) auront la meme adresse mémoire, ainsi lors de la libération, on obtient un "double free". 
 Pour résoudre ce problème, il conviendrait de surcharger l'opérateur "=" qui copierait la valeur de l'objet dans x.
 
      	 - Dvector x = Dvector (3, 1.);
