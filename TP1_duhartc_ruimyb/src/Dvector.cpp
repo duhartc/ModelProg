@@ -18,7 +18,6 @@ Dvector::Dvector()
 Dvector::Dvector(unsigned int s, double optionalInitVal) {
   cout<<"ici";
   //optionalInitVal = 0 if no value
-  //TODO vérif valeur de s ? pas si unsigned
   vsize = s;
   cout<<"ici "<<vsize<<"vs\n";
   v = new double[vsize];
@@ -51,7 +50,6 @@ void Dvector::display(ostream& str) {
 
 int Dvector::size() {
   //le int retourné sera non signé
-  //TODO vérif si unsigned int ou int 
   return vsize;
 }
 
@@ -86,12 +84,6 @@ Dvector::Dvector(string str) {
     //on compte le nombre d'éléments
     size_t nbElem = distance(istream_iterator<string>(file), 
                              istream_iterator<string>());
-
-    //unsigned int lines = count( 
-    // istreambuf_iterator<char>( file ), 
-    //istreambuf_iterator<char>(), 
-    // '\n' ); 
-    cout << "nombre lignes:" << nbElem <<"fin ligne\n";
 
     //on crée le vecteur
     vsize = nbElem;
