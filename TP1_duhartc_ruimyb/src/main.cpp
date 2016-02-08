@@ -74,8 +74,12 @@ int main()
     std::cout<<"x2 :"<<"\n";
     x2.display(std::cout);
 
-    std::cout<<"vFile0"<<"\n"; 
+    std::cout<<"vFile0 :"<<""; 
     Dvector vFile0("test0.txt");
+    std::stringstream ssss; 
+    vFile0.display(ssss);
+    assert(ssss.str() == "2.00\n3.00\n2.20\n1.00\n");
+    std::cout<<" OK \n"; 
     vFile0.display(std::cout);
     std::cout<<"vFile1"<<"\n"; 
     Dvector vFile1("tp1_test1.txt");
