@@ -1,6 +1,7 @@
 #include "Dvector.h"
 #include "assert.h"
 #include "sstream"
+#include <fstream>
 int main()
 {
     Dvector v;
@@ -27,20 +28,15 @@ int main()
     assert(vB.size() == 5);
     std::cout << "OK \n";
 
-    std::cout<<"Taille v:"<<v.size()<<"\n";
-    v.display(std::cout); 
-    std::cout<<"Taille vA:"<<vA.size()<<"\n";
-    vA.display(std::cout); 
-    std::cout<<"Taille vB:"<<vB.size()<<"\n";
-    vB.display(std::cout);
     Dvector vRandom1(3);
     vRandom1.fillRandomly(); 
-    std::cout<<"vRandom1"<<"\n";
-    vRandom1.display(std::cout);
 
+    std::cout<<"vACopy : ";
     Dvector vACopy = vA; 
-    std::cout<<"vACopy"<<"\n";
-    vA.display(std::cout);
+    ss.str("");
+    vACopy.display(ss);
+    assert(str.str() == ss.str());
+    std::cout << "OK \n";
 
     //Cas 1 : incorrect sans surcharger =
     // fait une affectation par copie
@@ -71,8 +67,6 @@ int main()
     assert(sss.str() == "0.00\n0.00\n0.00\n"); 
     assert(x2.size() == 3);
     std::cout<<"OK \n";   
-    std::cout<<"x2 :"<<"\n";
-    x2.display(std::cout);
 
     std::cout<<"vFile0 :"<<""; 
     Dvector vFile0("test0.txt");
@@ -80,19 +74,30 @@ int main()
     vFile0.display(ssss);
     assert(ssss.str() == "2.00\n3.00\n2.20\n1.00\n");
     std::cout<<" OK \n"; 
-    vFile0.display(std::cout);
-    std::cout<<"vFile1"<<"\n"; 
+    
+    std::cout<<"vFile1 :"; 
     Dvector vFile1("tp1_test1.txt");
-    vFile1.display(std::cout);
-    std::cout<<"vFile2"<<"\n"; 
-    //Dvector vFile2("tp1_test2.txt");
-    //vFile2.display(std::cout);
-    std::cout<<"vFileLignesVides"<<"\n";
+    ssss.str("");
+    vFile1.display(ssss);
+    assert(ssss.str() == "0.162182\n0.794285\n0.311215\n0.528533\n0.165649\n0.601982\n0.262971\n0.654079\n0.689214\n0.748152\n");
+    std::cout<<" OK \n";
+ 
+    std::cout<<"vFile2 :"; 
+    Dvector vFile2("tp1_test2.txt");
+    ssss.str("");
+    vFile2.display(ssss);
+    assert(vFile2.size() == 16737);
+    std::cout<<" OK \n";
+
+    std::cout<<"vFileLignesVides :";
     Dvector vFile3("tp1_lignesvides.txt");
-    vFile3.display(std::cout);
-    std::cout<<"vFileEspace"<<"\n";
+    assert(vFile3.size() == 10);
+    std::cout<<" OK \n";
+
+    std::cout<<"vFileEspace : ";
     Dvector vFile4("tp1_espace.txt");
-    vFile4.display(std::cout);
+    assert(vFile4.size() == 11);
+    std::cout<<" OK \n";
 
     return(0);
 }
