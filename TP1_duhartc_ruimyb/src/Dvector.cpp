@@ -1,3 +1,12 @@
+/*! \file Dvector.cpp
+ *  \brief     Ensemble des fonctions de la classe Dvector
+ *  \author    Claudia Duhart 
+ *  \author    Benjamin Ruimy
+ *  \version   1.0
+ *  \date      2015
+ *  \warning   Usage: Dvector 
+ */
+
 #include "Dvector.h"
 #include <cstddef> 
 #include <cstdlib>
@@ -10,6 +19,9 @@
 
 using namespace std;
 
+/*!
+ * Constructeur par défaut de Dvector
+ */
 Dvector::Dvector() 
 {
     cout << "[APPEL AU CONSTRUCTEUR PAR DEFAUT POUR L'OBJET : " << this << endl; 
@@ -17,6 +29,11 @@ Dvector::Dvector()
     v = NULL;
 }
 
+/*!
+ * Constructeur de Dvector (avec définition de la taille)
+ * @param  s taille du vecteur
+ * @param  optionalInitVal (optionnel) valeur d'initialisation du vecteur
+ */
 Dvector::Dvector(unsigned int s, double optionalInitVal) {
     //optionalInitVal = 0 if no value
     cout << "[APPEL AU CONSTRUCTEUR A DEUX PARAMETRES POUR L'OBJET : " << this << " ] " <<endl; 
@@ -26,7 +43,9 @@ Dvector::Dvector(unsigned int s, double optionalInitVal) {
         v[i] = optionalInitVal;
     }
 }
-
+/*!
+ * Desctructeur de Dvector
+ */
 Dvector::~Dvector() {
     cout << "[APPEL AU DESTRUCTEUR de l'objet :"<<this<< " ]" << endl; 
     delete [] v;
@@ -39,6 +58,12 @@ unsigned int nbDecimal(double d){
     ssConvert >> s_dec;
     return(s_dec.substr(s_dec.find(".") + 1).size());
 }
+
+/*!
+ * Fonction qui permet d'afficher un Dvector
+ * L'affichage se fait avec au minimum deux décimales
+ * @param  str flux de sortie
+ */
 void Dvector::display(ostream& str) {
     for (unsigned int i = 0; i < vsize ; i++) {
         if (nbDecimal(v[i]) < 2) {
@@ -50,6 +75,10 @@ void Dvector::display(ostream& str) {
     }
 }
 
+/*!
+ * Fonction retournant la taille d'un vecteur
+ * \return la taille du vecteur en int
+ */
 int Dvector::size() {
     //le int retourné sera non signé 
     return vsize;
@@ -61,12 +90,20 @@ double randomUniform() {
     //retourne toujours la meme séquence pour l'instant
     return rand()/(double)RAND_MAX;
 }
+
+/*!
+ * Fonction qui remplit un Dvector aléatoirement
+ */
 void Dvector::fillRandomly() {
     for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = randomUniform();
     }
 }
 
+/*!
+ * Constructeur par copie
+ * @param  vect référence à un vecteur
+ */
 Dvector::Dvector(const Dvector &vect) {
     std::cout<<"[APPEL AU CONSTRUCTEUR PAR COPIE POUR L'OBJET : "<<this<<" ]"<<endl;
     vsize = vect.vsize;
@@ -77,6 +114,11 @@ Dvector::Dvector(const Dvector &vect) {
     }
 } 
 
+/*!
+ * Fonction qui crée un vecteur à partir d'un fichier
+ * chaque valeur est séparée par un espace ou un retour à la ligne
+ * @param  str nom du fichier contenant les valeurs
+ */
 Dvector::Dvector(string str) {
     ifstream file(str.c_str());
     if (!file) {

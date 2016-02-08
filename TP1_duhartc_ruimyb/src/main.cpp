@@ -1,3 +1,12 @@
+/*! \file main.cpp
+ *  \brief     Test l'ensemble des fonctions du fichier Dvector.cpp
+ *  \author    Claudia Duhart 
+ *  \author    Benjamin Ruimy
+ *  \version   1.0
+ *  \date      2015
+ *  \warning   Usage: Dvector 
+ */
+
 #include "Dvector.h"
 #include "assert.h"
 #include "sstream"
