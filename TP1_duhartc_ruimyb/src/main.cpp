@@ -38,7 +38,7 @@ int main()
     std::cout << "OK \n";
 
     Dvector vRandom1(3);
-    vRandom1.fillRandomly(); 
+    vRandom1.fillRandomly();
 
     std::cout<<"vACopy : ";
     Dvector vACopy = vA; 
@@ -77,7 +77,7 @@ int main()
     assert(x2.size() == 3);
     std::cout<<"OK \n";   
 
-    std::cout<<"vFile0 :"<<""; 
+    std::cout<<"vFile0 :"; 
     Dvector vFile0("test0.txt");
     std::stringstream ssss; 
     vFile0.display(ssss);

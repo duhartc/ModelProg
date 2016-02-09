@@ -5,9 +5,9 @@
 
 class Dvector {
   //private by default
- public: //TODO verif encapsulation 
   unsigned int vsize;
   double *v;
+ public: //TODO verif encapsulation 
   Dvector();
   Dvector(unsigned int s, double optionalInitVal = 0);
   ~Dvector();
@@ -15,6 +15,6 @@ class Dvector {
   int size();
   void fillRandomly();
   Dvector(const Dvector & vect);
-  Dvector(std::string str);
+  Dvector(const std::string str);
 };
 #endif

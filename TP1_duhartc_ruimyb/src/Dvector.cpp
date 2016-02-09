@@ -85,9 +85,7 @@ int Dvector::size() {
 }
 
 double randomUniform() {
-    //srand(time(NULL)); // Réinitialise le rand() 
     rand(); 
-    //retourne toujours la meme séquence pour l'instant
     return rand()/(double)RAND_MAX;
 }
 
@@ -95,6 +93,7 @@ double randomUniform() {
  * Fonction qui remplit un Dvector aléatoirement
  */
 void Dvector::fillRandomly() {
+    srand(time(NULL));
     for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = randomUniform();
     }
@@ -119,7 +118,7 @@ Dvector::Dvector(const Dvector &vect) {
  * chaque valeur est séparée par un espace ou un retour à la ligne
  * @param  str nom du fichier contenant les valeurs
  */
-Dvector::Dvector(string str) {
+Dvector::Dvector(const string str) {
     ifstream file(str.c_str());
     if (!file) {
         vsize = 0;

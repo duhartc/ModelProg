@@ -6,14 +6,21 @@ REFDIR=.
 SRCDIR=$(REFDIR)/src
 DOCDIR=$(REFDIR)/docu
 CSOURCE = $(SRCDIR)/main.cpp $(SRCDIR)/Dvector.cpp
+PROG =$(SRCDIR)/Dvector
+OBJS = $(SRCDIR)/Dvector.o $(SRCDIR)/main.o
 
-all: doc 
+all: docu check 
+
+$(SRCDIR)/Dvector: $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 
 $(DOCDIR)/html/documentation.html: $(DOCDIR)/Doxyfile $(CSOURCE) 
 	$(DOCC) $(DOCDIR)/Doxyfile
 
-docu: $(CSOURCE) 
+check: $(SRCDIR)/Dvector
+
+doc: $(CSOURCE) 
 	doxygen Doxyfile
 
 clean:
-	rm -rf $(DOCDIR)/html/
+	rm -rf $(DOCDIR)/html/* $(SRCDIR)/*.o $(PROG)

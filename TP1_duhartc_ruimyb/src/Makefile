@@ -7,4 +7,7 @@ $(PROG): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 
 clean : 
-	rm -rf *.o
+	rm -rf *.o $(PROG)
+
+test : $(PROG)
+	./$(PROG)
