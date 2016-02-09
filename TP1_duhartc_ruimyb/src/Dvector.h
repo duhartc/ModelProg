@@ -11,8 +11,8 @@ class Dvector {
   Dvector();
   Dvector(unsigned int s, double optionalInitVal = 0);
   ~Dvector();
-  void display(std::ostream& str);
-  int size();
+  void display(std::ostream& str) const;
+  int size() const;
   void fillRandomly();
   Dvector(const Dvector & vect);
   Dvector(const std::string str);

@@ -64,7 +64,7 @@ unsigned int nbDecimal(double d){
  * L'affichage se fait avec au minimum deux décimales
  * @param  str flux de sortie
  */
-void Dvector::display(ostream& str) {
+void Dvector::display(ostream& str) const {
     for (unsigned int i = 0; i < vsize ; i++) {
         if (nbDecimal(v[i]) < 2) {
             str << fixed << setprecision(2) << v[i]<<"\n";
@@ -79,7 +79,7 @@ void Dvector::display(ostream& str) {
  * Fonction retournant la taille d'un vecteur
  * \return la taille du vecteur en int
  */
-int Dvector::size() {
+int Dvector::size() const{
     //le int retourné sera non signé 
     return vsize;
 }
