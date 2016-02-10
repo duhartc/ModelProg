@@ -129,4 +129,5 @@ int main()
     // moins unaire dans ou hors classe
     // << avec display, ok? 
     // les exceptions (dans les assert)
+    // const pour fonction exterieur ? implicite
 }
