@@ -24,4 +24,8 @@ class Dvector {
 
 Dvector operator + (const Dvector & Dv, const double x); 
 Dvector operator + (const double x, const Dvector & Dv);
+Dvector operator + (const Dvector & Dv1, const Dvector & Dv2);
+
+Dvector operator - (const Dvector & Dv); //moins unaire
+std::ostream& operator <<(std::ostream& O, const Dvector & Dv);
 #endif

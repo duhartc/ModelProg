@@ -203,6 +203,7 @@ Dvector & Dvector::operator += (const Dvector & Dv) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator += (double x) {
+  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   for (int i = 0; i < size(); i++) {
 	v[i] += x;
       }
@@ -230,3 +231,29 @@ Dvector operator + (const Dvector & Dv, double x) {
 Dvector operator + (double x, const Dvector & Dv) {
   return Dv + x;
 }
+
+/*!
+ * Operateur d'addition entre deux vecteurs
+ * @param  Dv1 reference au premier vecteur 
+ * @param  Dv2 reference au deuxième vecteur
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator + (const Dvector & Dv1, const Dvector & Dv2) {
+  Dvector vRes(Dv1); 
+  vRes += Dv2;
+  return vRes;
+}
+
+/*!
+ * Operateur moins unaire
+ * @param  Dv reference au vecteur sur lequel on applique le moins 
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator - (const Dvector & Dv) {
+  //TODO
+}
+ostream& operator <<(std::ostream& O, const Dvector & Dv){
+  Dv.display(O);
+  return O;
+}
+

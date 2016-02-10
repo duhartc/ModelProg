@@ -113,7 +113,7 @@ int main()
    
  //TP 2
     std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
-    //assert(vFile1(0) == 0.162182);
+    //assert(vFile1(0) == 0.162182); marche pas, pourquoi?
     //assert(vFile1(3) == 0.528533);
     vB += 1;
     vB.display(std::cout);
@@ -121,6 +121,12 @@ int main()
     vB.display(std::cout);
     Dvector vBAddG(0.5+vB); vBAddG.display(std::cout);
     Dvector vBAddD(vB+(-3)); vBAddD.display(std::cout);
-    
+    Dvector vBAdd(vB+vB); vBAdd.display(std::cout);
+    std::cout << "Test << \n";
+    std::cout << vB;
     return(0);
+    //Questions :
+    // moins unaire dans ou hors classe
+    // << avec display, ok? 
+    // les exceptions (dans les assert)
 }
