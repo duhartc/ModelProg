@@ -252,6 +252,13 @@ Dvector operator + (const Dvector & Dv1, const Dvector & Dv2) {
 Dvector operator - (const Dvector & Dv) {
   //TODO
 }
+
+/*!
+ * Operateur <<
+ * @param  O référence au flux de sortie
+ * @param  Dv référence au vecteur à retourner 
+ * \return un flux de sortie
+ */
 ostream& operator <<(std::ostream& O, const Dvector & Dv){
   Dv.display(O);
   return O;
