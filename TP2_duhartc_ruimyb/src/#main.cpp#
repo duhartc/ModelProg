@@ -13,6 +13,9 @@
 #include <fstream>
 int main()
 {
+
+  // TP1
+
     Dvector v;
     Dvector vA(3);
     Dvector vB(5,1);
@@ -107,6 +110,17 @@ int main()
     Dvector vFile4("tp1_espace.txt");
     assert(vFile4.size() == 11);
     std::cout<<" OK \n";
-
+   
+ //TP 2
+    std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
+    //assert(vFile1(0) == 0.162182); marche pas, pourquoi?
+    //assert(vFile1(3) == 0.528533);
+    vB += 1;
+    vB.display(std::cout);
+    vB += vB;
+    vB.display(std::cout);
+    Dvector vBAddG(0.5+vB); vBAddG.display(std::cout);
+    Dvector vBAddD(vB+(-3)); vBAddD.display(std::cout);
+    
     return(0);
 }

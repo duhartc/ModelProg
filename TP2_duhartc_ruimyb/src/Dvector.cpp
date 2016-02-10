@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iomanip>
+#include <stdexcept> 
 
 using namespace std;
 
@@ -155,4 +156,77 @@ Dvector::Dvector(const string str) {
         } 
     }
     file.close();
+}
+
+/*!
+ * Operateur d'accession à un élément du vecteur (accès lecture)
+ * @param  i retourne une erreur si i n'est pas un indice du vecteur
+ */
+double & Dvector::operator () (int i) {
+  if (i < 0 || i >= size()) {
+    throw std::logic_error("i out of range");
+  }
+  return v[i];
+}
+
+/*!
+ * Operateur d'accession à un élément du vecteur (accès écriture)
+ * @param  i retourne une erreur si i n'est pas un indice du vecteur
+ */
+double Dvector::operator () (int i) const {
+  if (i < 0 || i >= size()) {
+    throw std::logic_error("i out of range");
+  }
+  return v[i];
+}
+
+/*!
+ * Operateur d'addition/égalité entre 2 vecteurs
+ * @param  Dv reference au vecteur de base 
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator += (const Dvector & Dv) {
+  if (size() == Dv.size()) {
+      for (int i = 0; i < size(); i++) {
+	v[i] += Dv(i);
+      }
+      return *this;
+  }
+  else {
+    throw std::logic_error("Incompatible sizes");
+  }
+}
+
+/*!
+ * Operateur d'addition/égalité entre 1 vecteur et un réel
+ * @param x le réel à ajouter 
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator += (double x) {
+  for (int i = 0; i < size(); i++) {
+	v[i] += x;
+      }
+      return *this;
+}
+
+/*!
+ * Operateur d'addition entre un vecteur et un réel (gauche)
+ * @param  Dv reference au vecteur de base 
+ * @param  x le double à ajouter
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator + (const Dvector & Dv, double x) {
+  Dvector vRes(Dv); 
+  vRes += x;
+  return vRes;
+}
+
+/*!
+ * Operateur d'addition entre un vecteur et un réel (droite)
+ * @param  x le double à ajouter 
+ * @param  v reference au vecteur de base
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator + (double x, const Dvector & Dv) {
+  return Dv + x;
 }
