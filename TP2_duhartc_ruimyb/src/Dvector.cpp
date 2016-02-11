@@ -198,6 +198,60 @@ Dvector & Dvector::operator += (const Dvector & Dv) {
 }
 
 /*!
+ * Operateur de soustraction/égalité entre 2 vecteurs
+ * @param  Dv reference au vecteur de base 
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator -= (const Dvector & Dv) {
+  if (size() == Dv.size()) {
+      for (int i = 0; i < size(); i++) {
+	v[i] -= Dv(i);
+      }
+      return *this;
+  }
+  else {
+    throw std::logic_error("Incompatible sizes");
+  }
+}
+
+/*!
+ * Operateur de multiplication/égalité entre 2 vecteurs
+ * @param  Dv reference au vecteur de base 
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator *= (const Dvector & Dv) {
+  if (size() == Dv.size()) {
+      for (int i = 0; i < size(); i++) {
+	v[i] *= Dv(i);
+      }
+      return *this;
+  }
+  else {
+    throw std::logic_error("Incompatible sizes");
+  }
+}
+
+/*!
+ * Operateur de division/égalité entre 2 vecteurs
+ * @param  Dv reference au vecteur de base 
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator /= (const Dvector & Dv) {
+  if (size() == Dv.size()) {
+      for (int i = 0; i < size(); i++) {
+      if (Dv(i) == 0){
+        throw std::logic_error("Division by 0");
+      }
+	v[i] /= Dv(i);
+      }
+      return *this;
+  }
+  else {
+    throw std::logic_error("Incompatible sizes");
+  }
+}
+
+/*!
  * Operateur d'addition/égalité entre 1 vecteur et un réel
  * @param x le réel à ajouter 
  * \return le vecteur resultant (dans entrée)
@@ -206,6 +260,48 @@ Dvector & Dvector::operator += (double x) {
   //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   for (int i = 0; i < size(); i++) {
 	v[i] += x;
+      }
+      return *this;
+}
+
+/*!
+ * Operateur de soustraction/égalité entre 1 vecteur et un réel
+ * @param x le réel à soustraire
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator -= (double x) {
+  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
+  for (int i = 0; i < size(); i++) {
+	v[i] -= x;
+      }
+      return *this;
+}
+
+/*!
+ * Operateur de multiplication/égalité entre 1 vecteur et un réel
+ * @param x le réel à multiplier
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator *= (double x) {
+  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
+  for (int i = 0; i < size(); i++) {
+	v[i] *= x;
+      }
+      return *this;
+}
+
+/*!
+ * Operateur de division/égalité entre 1 vecteur et un réel
+ * @param x le réel à ajouter 
+ * \return le vecteur resultant (dans entrée)
+ */
+Dvector & Dvector::operator /= (double x) {
+  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
+  if (x == 0) {
+      throw std::logic_error("division by 0");
+  }
+  for (int i = 0; i < size(); i++) {
+	v[i] /= x;
       }
       return *this;
 }
@@ -223,6 +319,45 @@ Dvector operator + (const Dvector & Dv, double x) {
 }
 
 /*!
+ * Operateur de soustraction entre un vecteur et un réel (gauche)
+ * @param  Dv reference au vecteur de base 
+ * @param  x le double à soustraire
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator - (const Dvector & Dv, double x) {
+  Dvector vRes(Dv); 
+  vRes -= x;
+  return vRes;
+}
+
+/*!
+ * Operateur de multiplication entre un vecteur et un réel (gauche)
+ * @param  Dv reference au vecteur de base 
+ * @param  x le double à soustraire
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator * (const Dvector & Dv, double x) {
+  Dvector vRes(Dv); 
+  vRes *= x;
+  return vRes;
+}
+
+/*!
+ * Operateur de division entre un vecteur et un réel (gauche)
+ * @param  Dv reference au vecteur de base 
+ * @param  x le double à diviser
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator / (const Dvector & Dv, double x) {
+  Dvector vRes(Dv); 
+  if (x == 0) {
+    throw std::logic_error("Division by 0"); 
+  }
+  vRes /= x;
+  return vRes;
+}
+
+/*!
  * Operateur d'addition entre un vecteur et un réel (droite)
  * @param  x le double à ajouter 
  * @param  v reference au vecteur de base
@@ -231,6 +366,42 @@ Dvector operator + (const Dvector & Dv, double x) {
 Dvector operator + (double x, const Dvector & Dv) {
   return Dv + x;
 }
+
+/*!
+ * Operateur de soustraction entre un vecteur et un réel (droite)
+ * @param  x le double à multiplier 
+ * @param  v reference au vecteur de base
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator - (double x, const Dvector & Dv) {
+  return Dv - x;
+}
+
+/*!
+ * Operateur de multiplication entre un vecteur et un réel (droite)
+ * @param  x le double à multiplier 
+ * @param  v reference au vecteur de base
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator * (double x, const Dvector & Dv) {
+  return Dv * x;
+}
+
+/*!
+ * Operateur de soustraction entre un vecteur et un réel (droite)
+ * @param  x le double à multiplier 
+ * @param  v reference au vecteur de base
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator / (double x, const Dvector & Dv) {
+  if (x == 0) {
+    throw std::logic_error("Division by 0"); 
+  }  
+  return Dv / x;
+}
+
+
+
 
 /*!
  * Operateur d'addition entre deux vecteurs
@@ -245,12 +416,50 @@ Dvector operator + (const Dvector & Dv1, const Dvector & Dv2) {
 }
 
 /*!
+ * Operateur soustraction entre deux vecteurs
+ * @param  Dv1 reference au premier vecteur 
+ * @param  Dv2 reference au deuxième vecteur
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator - (const Dvector & Dv1, const Dvector & Dv2) {
+  Dvector vRes(Dv1); 
+  vRes -= Dv2;
+  return vRes;
+}
+
+/*!
+ * Operateur multiplication entre deux vecteurs
+ * @param  Dv1 reference au premier vecteur 
+ * @param  Dv2 reference au deuxième vecteur
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator * (const Dvector & Dv1, const Dvector & Dv2) {
+  Dvector vRes(Dv1); 
+  vRes *= Dv2;
+  return vRes;
+}
+
+/*!
+ * Operateur de division entre deux vecteurs
+ * @param  Dv1 reference au premier vecteur 
+ * @param  Dv2 reference au deuxième vecteur
+ * \return Un vecteur resultant de l'opération
+ */
+Dvector operator / (const Dvector & Dv1, const Dvector & Dv2) {
+  Dvector vRes(Dv1); 
+  vRes /= Dv2;
+  return vRes;
+}
+
+/*!
  * Operateur moins unaire
  * @param  Dv reference au vecteur sur lequel on applique le moins 
  * \return Un vecteur resultant de l'opération
  */
 Dvector operator - (const Dvector & Dv) {
-  //TODO
+  Dvector vRes(Dv); 
+  vRes *= (-1); 
+  return vRes;
 }
 
 /*!
