@@ -120,6 +120,7 @@ int main()
     assert(vFile4.size() == 11);
     std::cout<<" OK \n";
 
+
    
  //TP 2
     std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
@@ -132,8 +133,16 @@ int main()
     Dvector vBAddG(0.5+vB); vBAddG.display(std::cout);
     Dvector vBAddD(vB+(-3)); vBAddD.display(std::cout);
     Dvector vBAdd(vB+vB); vBAdd.display(std::cout);
-    std::cout << "Test << \n";
+    std::cout << "Test << :\n";
     std::cout << vB;
+    std::cout<<" OK \n";
+     
+    Dvector vBAffect;
+    std::cout << "Test affectation : \n";
+    vBAffect = vB;
+    //faire deuxieme métode avec boucle 
+    std::cout << vB;
+    std::cout<<" OK \n";
     
     
 

@@ -488,15 +488,16 @@ ostream& operator <<(std::ostream& O, const Dvector & Dv){
  * @param  Dv le vecteur à affecter 
  * \return void
  */
-void Dvector::operator = (Dvector Dv){
-  // TODO vérifier si même élément? 
+Dvector & Dvector::operator = (const Dvector &Dv){
+  //faire 2 méthodes
   vsize = Dv.size();
   if (vsize == 0) {
     v = NULL;
   }
   else {
-    v = new double(vsize);
+    v = new double[vsize];
     std::memcpy(v, Dv.v, vsize * sizeof(double));
   }
+  return *this;
 }
 
