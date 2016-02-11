@@ -20,12 +20,16 @@ class Dvector {
   double operator () (int i) const;
   Dvector & operator += (const Dvector & Dv);
   Dvector & operator += (const double x);
+
   Dvector & operator -= (const Dvector & Dv);
   Dvector & operator -= (const double x);
   Dvector & operator *= (const Dvector & Dv);
   Dvector & operator *= (const double x);
   Dvector & operator /= (const Dvector & Dv);
   Dvector & operator /= (const double x);
+
+  void operator=(Dvector Dv);
+
 }; 
 
 Dvector operator + (const Dvector & Dv, const double x); 

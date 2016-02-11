@@ -17,6 +17,7 @@
 #include <sstream>
 #include <iomanip>
 #include <stdexcept> 
+#include <cstring>
 
 using namespace std;
 
@@ -39,9 +40,14 @@ Dvector::Dvector(unsigned int s, double optionalInitVal) {
     //optionalInitVal = 0 if no value
     cout << "[APPEL AU CONSTRUCTEUR A DEUX PARAMETRES POUR L'OBJET : " << this << " ] " <<endl; 
     vsize = s;
-    v = new double[vsize];
-    for (unsigned int i = 0; i < vsize ; i++) {
+    if (vsize == 0) {
+      v = NULL;
+    }
+    else {
+      v = new double[vsize];
+      for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = optionalInitVal;
+      }
     }
 }
 /*!
@@ -94,7 +100,11 @@ double randomUniform() {
  * Fonction qui remplit un Dvector aléatoirement
  */
 void Dvector::fillRandomly() {
-    srand(time(NULL));
+    static bool inited = false;
+    if (!inited) {
+      inited = true;
+      srand(time(NULL));
+    }
     for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = randomUniform();
     }
@@ -471,5 +481,22 @@ Dvector operator - (const Dvector & Dv) {
 ostream& operator <<(std::ostream& O, const Dvector & Dv){
   Dv.display(O);
   return O;
+}
+
+/*!
+ * Operateur d'affectation
+ * @param  Dv le vecteur à affecter 
+ * \return void
+ */
+void Dvector::operator = (Dvector Dv){
+  // TODO vérifier si même élément? 
+  vsize = Dv.size();
+  if (vsize == 0) {
+    v = NULL;
+  }
+  else {
+    v = new double(vsize);
+    std::memcpy(v, Dv.v, vsize * sizeof(double));
+  }
 }
 
