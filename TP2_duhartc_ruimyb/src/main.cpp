@@ -11,6 +11,15 @@
 #include "assert.h"
 #include "sstream"
 #include <fstream>
+#include <cmath>
+
+bool compDouble(double x, double y, double precision) {
+  if (std::abs(x - y)  < precision) {
+    return true;
+  }
+  return false;
+ }
+
 int main()
 {
 
@@ -110,10 +119,11 @@ int main()
     Dvector vFile4("tp1_espace.txt");
     assert(vFile4.size() == 11);
     std::cout<<" OK \n";
+
    
  //TP 2
     std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
-    //assert(vFile1(0) == 0.162182); marche pas, pourquoi?
+    assert(compDouble(vFile1(0), 0.162182, 0.000001));
     //assert(vFile1(3) == 0.528533);
     vB += 1;
     vB.display(std::cout);
@@ -124,10 +134,12 @@ int main()
     Dvector vBAdd(vB+vB); vBAdd.display(std::cout);
     std::cout << "Test << \n";
     std::cout << vB;
+    
+    
+
     return(0);
     //Questions :
-    // moins unaire dans ou hors classe
-    // << avec display, ok? 
-    // les exceptions (dans les assert)
-    // const pour fonction exterieur ? implicite
+    // assert qui marche pas > pourquoi?
+    // les exceptions (dans les assert) try catch avec assert true false
+    // deuxieme metode affectation ? avec boucle for 
 }
