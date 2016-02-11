@@ -123,6 +123,8 @@ int main()
 
    
  //TP 2
+    
+    std::cout << "Test sur l'addition\n";
     std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
     assert(compDouble(vFile1(0), 0.162182, 0.000001));
     //assert(vFile1(3) == 0.528533);
@@ -143,6 +145,46 @@ int main()
     //faire deuxieme métode avec boucle 
     std::cout << vB;
     std::cout<<" OK \n";
+
+    std::cout << "Test sur la soustraction\n";
+    vB -= 1;
+    vB.display(std::cout);
+    vB -= 6 *vB;
+    vB.display(std::cout);
+    Dvector vBSubG(0.5-vB); vBSubG.display(std::cout);
+    Dvector vBSubD(vB-(-3)); vBSubD.display(std::cout);
+    Dvector vBSub(vB-vB); vBSub.display(std::cout);
+    std::cout << "Test << \n";
+    std::cout << vB;
+    
+    std::cout << "Test sur la multiplication\n";
+    vB *= 1;
+    vB.display(std::cout);
+    vB *= vB;
+    vB.display(std::cout);
+    Dvector vBMultG(0.5*vB); vBMultG.display(std::cout);
+    Dvector vBMultD(vB*(-3)); vBMultD.display(std::cout);
+    Dvector vBMult(vB*vB); vBMult.display(std::cout);
+    std::cout << "Test << \n";
+    std::cout << vB;
+    std::cout<<" OK \n";
+    
+    std::cout << "Test sur la division\n";
+    vB /= 8;
+    vB.display(std::cout);
+    vB /= vB;
+    vB.display(std::cout);
+    Dvector vBDivG(0.5/vB); vBDivG.display(std::cout);
+    Dvector vBDivD(vB/(-3)); vBDivD.display(std::cout);
+    Dvector vBDiv(vB/vB); vBDiv.display(std::cout);
+    std::cout << "Test << \n";
+    std::cout << vB;
+    
+    std::cout << "Test division par 0 << \n";
+    vB /= 0;
+    Dvector vBTestG(vB/0); vBTestG.display(std::cout);
+    
+    
     
     
 
