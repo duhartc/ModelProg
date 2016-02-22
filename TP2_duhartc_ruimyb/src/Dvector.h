@@ -27,6 +27,7 @@ class Dvector {
   Dvector & operator /= (const Dvector & Dv);
   Dvector & operator /= (const double x);
   Dvector & operator = (const Dvector &Dv);
+  void resize(unsigned int newSize, ...);
 
 }; 
 

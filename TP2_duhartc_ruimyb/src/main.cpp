@@ -204,7 +204,15 @@ int main()
     assert(!(v5 == v3));
     std::cout<<" OK \n";
     
-    
+    std::cout << "Test resize() \n";
+    Dvector vResize(5, 1);
+    std::cout << "Test 3\n";
+    vResize.resize(3);
+    std::cout << vResize;
+    std::cout << "Test 7 - > 1\n";
+    vResize.resize(7, 1.0, 1.0, 1.0, 1.0);
+    std::cout << vResize;
+
     //std::cout << "Test division par 0 << \n";
     //vB /= 0;
     //Dvector vBTestG(vB/0); vBTestG.display(std::cout);

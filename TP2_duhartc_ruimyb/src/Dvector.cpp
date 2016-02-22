@@ -19,6 +19,7 @@
 #include <stdexcept> 
 #include <cstring>
 #include <cmath>
+#include <cstdarg>
 
 using namespace std;
 
@@ -559,4 +560,46 @@ bool operator == (const Dvector & vG, const Dvector & vD) {
       }
   }
   return true;
+}
+
+/*!
+ * Permet de changer la taille d'un vecteur
+ * @param  newSize la nouvelle taille du vecteur
+ * @param  ... paramètres optionnels contenant les nouvelles valeurs
+ */
+void Dvector::resize(unsigned int newSize, ...) {
+  //attention, pas de vérification de type
+  if (newSize == vsize) {
+    return;
+  }
+  else {
+    unsigned int nbArg = newSize - vsize;
+    unsigned int oldSize = vsize;
+    vsize = newSize;
+    if (vsize==0) {
+      v = NULL;
+    }
+    else if (newSize < oldSize) {
+      double * newV = new double[vsize];
+      std::memcpy(newV, v, vsize * sizeof(double));
+      delete [] v;
+      v = newV;
+    }
+    else {
+      double * newV = new double[vsize];
+      std::memcpy(newV, v, oldSize * sizeof(double));
+
+      //on ajoute les éléments supplémentaires
+      va_list list;
+      va_start(list, nbArg);
+      for (int arg=0; arg < nbArg; ++arg) {
+	newV[oldSize + arg ] = va_arg(list, double);
+      }
+
+      delete [] v;
+      v = newV;
+
+      va_end(list);
+      }
+  }
 }
