@@ -484,6 +484,19 @@ ostream& operator <<(std::ostream& O, const Dvector & Dv){
 }
 
 /*!
+ * Operateur >>
+ * @param  I référence au flux d'entrée
+ * @param  Dv référence au vecteur à retourner 
+ * \return un flux d'entrée
+ */
+istream& operator >>(std::istream& I, Dvector & Dv){
+  for (int i=0; i<Dv.size(); i++) {
+    I >> Dv(i);
+  }
+  return I;
+}
+
+/*!
  * Operateur d'affectation
  * @param  Dv le vecteur à affecter 
  * \return void

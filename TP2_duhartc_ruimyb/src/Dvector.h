@@ -47,5 +47,7 @@ Dvector operator / (const double x, const Dvector & Dv);
 Dvector operator / (const Dvector & Dv1, const Dvector & Dv2);
 
 Dvector operator - (const Dvector & Dv); //moins unaire
+
 std::ostream& operator <<(std::ostream& O, const Dvector & Dv);
+std::istream& operator >>(std::istream& I, Dvector & Dv);
 #endif

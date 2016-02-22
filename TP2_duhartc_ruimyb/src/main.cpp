@@ -177,12 +177,22 @@ int main()
     Dvector vBDivG(0.5/vB); vBDivG.display(std::cout);
     Dvector vBDivD(vB/(-3)); vBDivD.display(std::cout);
     Dvector vBDiv(vB/vB); vBDiv.display(std::cout);
+
     std::cout << "Test << \n";
     std::cout << vB;
+
+    std::cout << "Test >> \n";
+    std::stringstream streamTest;
+    Dvector vStream(3);
+    streamTest << vB;
+    streamTest >> vStream;
+    vStream.display(std::cout);
     
-    std::cout << "Test division par 0 << \n";
-    vB /= 0;
-    Dvector vBTestG(vB/0); vBTestG.display(std::cout);
+    
+    
+    //std::cout << "Test division par 0 << \n";
+    //vB /= 0;
+    //Dvector vBTestG(vB/0); vBTestG.display(std::cout);
     
     
     
