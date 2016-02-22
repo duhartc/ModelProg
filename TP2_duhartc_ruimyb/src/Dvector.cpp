@@ -18,6 +18,7 @@
 #include <iomanip>
 #include <stdexcept> 
 #include <cstring>
+#include <cmath>
 
 using namespace std;
 
@@ -534,3 +535,28 @@ Dvector & Dvector::operator = (const Dvector &Dv){
   return *this;
 }
 */
+
+bool compDouble(double x, double y, double precision) {
+  if (std::abs(x - y)  < precision) {
+    return true;
+  }
+  return false;
+ }
+
+/*!
+ * Operateur ==
+ * @param  vG référence au vecteur de gauche
+ * @param  vD référence au vecteur de droite 
+ * \return booleen
+ */
+bool operator == (const Dvector & vG, const Dvector & vD) {
+  if (vG.size() != vD.size()){
+    return false;
+  }
+  for (int i = 0; i < vG.size() ; i++) {
+    if (!compDouble(vG(i), vD(i), 0.000001)) {
+	return false;
+      }
+  }
+  return true;
+}

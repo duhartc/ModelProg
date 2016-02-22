@@ -13,7 +13,7 @@
 #include <fstream>
 #include <cmath>
 
-bool compDouble(double x, double y, double precision) {
+bool compDoubleMain(double x, double y, double precision) {
   if (std::abs(x - y)  < precision) {
     return true;
   }
@@ -126,7 +126,7 @@ int main()
     
     std::cout << "Test sur l'addition\n";
     std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
-    assert(compDouble(vFile1(0), 0.162182, 0.000001));
+    assert(compDoubleMain(vFile1(0), 0.162182, 0.000001));
     //assert(vFile1(3) == 0.528533);
     vB += 1;
     vB.display(std::cout);
@@ -193,7 +193,16 @@ int main()
     streamTest << vB;
     streamTest >> vStream;
     vStream.display(std::cout);
-    
+
+    std::cout << "Test == \n";
+    Dvector v5(5, 0.001);
+    Dvector v3(3, 0.001);
+    Dvector vDiff5(5, 0.002);
+    Dvector vEq5(5, 0.001);
+    assert(v5 == vEq5);
+    assert(!(v5 == vDiff5));
+    assert(!(v5 == v3));
+    std::cout<<" OK \n";
     
     
     //std::cout << "Test division par 0 << \n";

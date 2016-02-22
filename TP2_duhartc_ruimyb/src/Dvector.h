@@ -50,4 +50,6 @@ Dvector operator - (const Dvector & Dv); //moins unaire
 
 std::ostream& operator <<(std::ostream& O, const Dvector & Dv);
 std::istream& operator >>(std::istream& I, Dvector & Dv);
+
+bool operator == (const Dvector & vG, const Dvector & vD);
 #endif
