@@ -141,9 +141,15 @@ int main()
      
     Dvector vBAffect;
     std::cout << "Test affectation : \n";
-    vBAffect = vB;
-    //faire deuxieme métode avec boucle 
+    vB = vB; 
+    std::cout << "Autoaffectation : \n";
     std::cout << vB;
+    std::cout<<" OK \n";
+    vBAffect = vB;
+    std::cout << "vecteur 1: \n";
+    std::cout << vB;
+    std::cout << " = vecteur 2: \n";
+    std::cout << vBAffect;
     std::cout<<" OK \n";
 
     std::cout << "Test sur la soustraction\n";

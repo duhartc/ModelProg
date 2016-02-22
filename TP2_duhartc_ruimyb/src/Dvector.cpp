@@ -502,15 +502,35 @@ istream& operator >>(std::istream& I, Dvector & Dv){
  * \return void
  */
 Dvector & Dvector::operator = (const Dvector &Dv){
-  //faire 2 méthodes
-  vsize = Dv.size();
-  if (vsize == 0) {
-    v = NULL;
-  }
-  else {
-    v = new double[vsize];
-    std::memcpy(v, Dv.v, vsize * sizeof(double));
+  //Méthode avec memcpy
+  if (&Dv != this) {
+    vsize = Dv.size();
+    if (vsize == 0) {
+      v = NULL;
+    }
+    else {
+      v = new double[vsize];
+      std::memcpy(v, Dv.v, vsize * sizeof(double));
+    }
   }
   return *this;
 }
 
+/*
+Dvector & Dvector::operator = (const Dvector &Dv){
+  //Méthode avec boucle  
+  if (&Dv != this) {
+    vsize = Dv.size();
+    if (vsize == 0) {
+      v = NULL;
+    }
+    else {
+      v = new double[vsize];
+      for (unsigned int i = 0; i < vsize ; i++) {
+	v[i] = Dv(i);
+      }
+    }
+  }
+  return *this;
+}
+*/
