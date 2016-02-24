@@ -222,8 +222,5 @@ int main()
     
 
     return(0);
-    //Questions :
-    // assert qui marche pas > pourquoi?
     // les exceptions (dans les assert) try catch avec assert true false
-    // deuxieme metode affectation ? avec boucle for 
 }

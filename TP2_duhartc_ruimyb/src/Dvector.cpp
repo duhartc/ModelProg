@@ -565,10 +565,11 @@ bool operator == (const Dvector & vG, const Dvector & vD) {
 /*!
  * Permet de changer la taille d'un vecteur
  * @param  newSize la nouvelle taille du vecteur
- * @param  ... paramètres optionnels contenant les nouvelles valeurs
+ * @param  ... paramètres optionnels (double) contenant les nouvelles valeurs
  */
 void Dvector::resize(unsigned int newSize, ...) {
   //attention, pas de vérification de type
+  // mettre explicitement des doubles lors de l'appel
   if (newSize == vsize) {
     return;
   }
