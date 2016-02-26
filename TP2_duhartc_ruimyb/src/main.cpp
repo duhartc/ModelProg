@@ -166,11 +166,8 @@ int main()
     std::cout << "Test sur la multiplication\n";
     vB *= 1;
     vB.display(std::cout);
-    vB *= vB;
-    vB.display(std::cout);
     Dvector vBMultG(0.5*vB); vBMultG.display(std::cout);
     Dvector vBMultD(vB*(-3)); vBMultD.display(std::cout);
-    Dvector vBMult(vB*vB); vBMult.display(std::cout);
     std::cout << "Test << \n";
     std::cout << vB;
     std::cout<<" OK \n";
@@ -178,11 +175,8 @@ int main()
     std::cout << "Test sur la division\n";
     vB /= 8;
     vB.display(std::cout);
-    vB /= vB;
-    vB.display(std::cout);
     Dvector vBDivG(0.5/vB); vBDivG.display(std::cout);
     Dvector vBDivD(vB/(-3)); vBDivD.display(std::cout);
-    Dvector vBDiv(vB/vB); vBDiv.display(std::cout);
 
     std::cout << "Test << \n";
     std::cout << vB;
