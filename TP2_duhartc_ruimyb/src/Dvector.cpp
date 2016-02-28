@@ -226,42 +226,9 @@ Dvector & Dvector::operator -= (const Dvector & Dv) {
   }
 }
 
-/*!
- * Operateur de multiplication/égalité entre 2 vecteurs
- * @param  Dv reference au vecteur de base 
- * \return le vecteur resultant (dans entrée)
- */
-Dvector & Dvector::operator *= (const Dvector & Dv) {
-  if (size() == Dv.size()) {
-      for (int i = 0; i < size(); i++) {
-	v[i] *= Dv(i);
-      }
-      return *this;
-  }
-  else {
-    throw std::logic_error("Incompatible sizes");
-  }
-}
 
-/*!
- * Operateur de division/égalité entre 2 vecteurs
- * @param  Dv reference au vecteur de base 
- * \return le vecteur resultant (dans entrée)
- */
-Dvector & Dvector::operator /= (const Dvector & Dv) {
-  if (size() == Dv.size()) {
-      for (int i = 0; i < size(); i++) {
-      if (Dv(i) == 0){
-        throw std::logic_error("Division by 0");
-      }
-	v[i] /= Dv(i);
-      }
-      return *this;
-  }
-  else {
-    throw std::logic_error("Incompatible sizes");
-  }
-}
+
+
 
 /*!
  * Operateur d'addition/égalité entre 1 vecteur et un réel
@@ -380,17 +347,17 @@ Dvector operator + (double x, const Dvector & Dv) {
 }
 
 /*!
- * Operateur de soustraction entre un vecteur et un réel (droite)
+ * Operateur de soustraction entre un vecteur et un réel (gauche)
  * @param  x le double à multiplier 
  * @param  v reference au vecteur de base
  * \return Un vecteur resultant de l'opération
  */
 Dvector operator - (double x, const Dvector & Dv) {
-  return Dv - x;
+  return -Dv + x;
 }
 
 /*!
- * Operateur de multiplication entre un vecteur et un réel (droite)
+ * Operateur de multiplication entre un vecteur et un réel (gauche)
  * @param  x le double à multiplier 
  * @param  v reference au vecteur de base
  * \return Un vecteur resultant de l'opération
@@ -400,16 +367,20 @@ Dvector operator * (double x, const Dvector & Dv) {
 }
 
 /*!
- * Operateur de soustraction entre un vecteur et un réel (droite)
+ * Operateur de soustraction entre un vecteur et un réel (gauche)
  * @param  x le double à multiplier 
  * @param  v reference au vecteur de base
  * \return Un vecteur resultant de l'opération
  */
 Dvector operator / (double x, const Dvector & Dv) {
-  if (x == 0) {
-    throw std::logic_error("Division by 0"); 
-  }  
-  return Dv / x;
+        Dvector vRes(Dv.size()); 
+      for (int i = 0; i < Dv.size(); i++) {
+              if (Dv(i) == 0) {
+                      throw std::logic_error("Division by 0"); 
+              } 
+              vRes(i) = x / Dv(i); 
+      }
+  return vRes;
 }
 
 
@@ -439,29 +410,8 @@ Dvector operator - (const Dvector & Dv1, const Dvector & Dv2) {
   return vRes;
 }
 
-/*!
- * Operateur multiplication entre deux vecteurs
- * @param  Dv1 reference au premier vecteur 
- * @param  Dv2 reference au deuxième vecteur
- * \return Un vecteur resultant de l'opération
- */
-Dvector operator * (const Dvector & Dv1, const Dvector & Dv2) {
-  Dvector vRes(Dv1); 
-  vRes *= Dv2;
-  return vRes;
-}
 
-/*!
- * Operateur de division entre deux vecteurs
- * @param  Dv1 reference au premier vecteur 
- * @param  Dv2 reference au deuxième vecteur
- * \return Un vecteur resultant de l'opération
- */
-Dvector operator / (const Dvector & Dv1, const Dvector & Dv2) {
-  Dvector vRes(Dv1); 
-  vRes /= Dv2;
-  return vRes;
-}
+
 
 /*!
  * Operateur moins unaire
@@ -503,6 +453,7 @@ istream& operator >>(std::istream& I, Dvector & Dv){
  * @param  Dv le vecteur à affecter 
  * \return void
  */
+
 Dvector & Dvector::operator = (const Dvector &Dv){
   //Méthode avec memcpy
   if (&Dv != this) {
@@ -519,6 +470,9 @@ Dvector & Dvector::operator = (const Dvector &Dv){
 }
 
 /*
+ * 53secs
+ * 
+ * 
 Dvector & Dvector::operator = (const Dvector &Dv){
   //Méthode avec boucle  
   if (&Dv != this) {
