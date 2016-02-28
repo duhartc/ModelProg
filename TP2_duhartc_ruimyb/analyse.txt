@@ -10,3 +10,17 @@ Pour résoudre ce problème, il conviendrait de surcharger l'opérateur "=" qui 
      	 - Dvector x = Dvector (3, 1.);
 
 L'expression ci-dessus utilise un constructeur par copie (implicitement). Ce dernier ayant été surchargé, l'expression fonctionne correctement. En effet, on copie la taille puis chacun des membres du vecteur un par un dans un nouvel objet vecteur. 
+
+TP2
+
+Question 2 :
+
+	- Dvector operator+ (Dvector a, Dvector b)
+
+L'expression ci-dessus utilise directement les variables passées en paramètre. On ne précise pas que les variables doivent être inchangées lors de l'appel. Ainsi, on pourrait donc avoir comme effet de bord, des modifications de a et b, ce qui n'est pas l'effet recherché.  
+
+	- Dvector operator+ (const Dvector &a, const Dvector &b)
+
+Ici, on passe les paramètres par référence en spécifiant qu'ils sont non-modifiables. Au cours de l'appel, des variables locales seront crées auxquelles les valeurs de a et b seront affectées. Le passage par référence permet aussi d'améliorer la vitesse d'accès aux données de la variable source. 
+
+Question 4 :
