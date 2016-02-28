@@ -30,7 +30,7 @@ Nous avons identifiés des groupes d'opérateurs/fonctions permettants des facto
 Ceux que nous avons factorisés:
 
 Nous utilisons l'opérateur d'affectation dans le constructeur par copie. 
-La fonctions display et l'opérateur << étant clairement liés, nous utilisons la fonction dans ce dernier. 
+La fonctions display et l'opérateur << étant clairement liés, nous utilisons la fonction dans ce dernier (l'inverse était aussi possible).
 Le moins unaire utilise le *= entre un vecteur et un réel.
 Quand cela est judicieux, nous utilisons le moins unaire combiné à l'opérateur d'addition dans l'implémentation de l'opérateur de soustraction. De plus, nous réutilisons un opérateur lors de l'implémentation de ce même opérateur avec des membres différents. Par exemple, l'addition avec un vecteur à gauche et un réel ainsi que l'addition avec un vecteur à droite et un réel. 
 Pour chacun des opérateurs +, *, /, - nous utilisons les opérateurs internes associés +=, *=, /=, -= combinés au constructeur par copie. 
@@ -39,5 +39,6 @@ Bien entendu, l'opérateur d'accession est utilisé dès que cela est necessecai
 Les autres factorisations possibles:
 
 Nous avons préféré gérer l'implémentation de la fonction resize sans utiliser de factorisation pour limiter les erreurs. Cependant, on peut constater qu'un factorisation avec l'affectation serait possible. 
+Nous aurions aussi pu utiliser l'affectation dans le constructeur avec définition de la taille. 
 
 
