@@ -347,17 +347,17 @@ Dvector operator + (double x, const Dvector & Dv) {
 }
 
 /*!
- * Operateur de soustraction entre un vecteur et un réel (droite)
+ * Operateur de soustraction entre un vecteur et un réel (gauche)
  * @param  x le double à multiplier 
  * @param  v reference au vecteur de base
  * \return Un vecteur resultant de l'opération
  */
 Dvector operator - (double x, const Dvector & Dv) {
-  return Dv - x;
+  return -Dv + x;
 }
 
 /*!
- * Operateur de multiplication entre un vecteur et un réel (droite)
+ * Operateur de multiplication entre un vecteur et un réel (gauche)
  * @param  x le double à multiplier 
  * @param  v reference au vecteur de base
  * \return Un vecteur resultant de l'opération
@@ -367,16 +367,20 @@ Dvector operator * (double x, const Dvector & Dv) {
 }
 
 /*!
- * Operateur de soustraction entre un vecteur et un réel (droite)
+ * Operateur de soustraction entre un vecteur et un réel (gauche)
  * @param  x le double à multiplier 
  * @param  v reference au vecteur de base
  * \return Un vecteur resultant de l'opération
  */
 Dvector operator / (double x, const Dvector & Dv) {
-  if (x == 0) {
-    throw std::logic_error("Division by 0"); 
-  }  
-  return Dv / x;
+        Dvector vRes(Dv.size()); 
+      for (int i = 0; i < Dv.size(); i++) {
+              if (Dv(i) == 0) {
+                      throw std::logic_error("Division by 0"); 
+              } 
+              vRes(i) = x / Dv(i); 
+      }
+  return vRes;
 }
 
 
@@ -449,6 +453,7 @@ istream& operator >>(std::istream& I, Dvector & Dv){
  * @param  Dv le vecteur à affecter 
  * \return void
  */
+
 Dvector & Dvector::operator = (const Dvector &Dv){
   //Méthode avec memcpy
   if (&Dv != this) {
@@ -465,6 +470,9 @@ Dvector & Dvector::operator = (const Dvector &Dv){
 }
 
 /*
+ * 53secs
+ * 
+ * 
 Dvector & Dvector::operator = (const Dvector &Dv){
   //Méthode avec boucle  
   if (&Dv != this) {

@@ -123,72 +123,135 @@ int main()
 
    
  //TP 2
-    
-    std::cout << "Test sur l'addition\n";
+    std::cout << "\n\n\n\n Tests sur le TP2 : \n\n\n\n";
+    std::cout << "Test des opérateurs : \n\n";
+    /*
     std::cout << vFile1(0) << "  " << vFile1(3) << "\n";
     assert(compDoubleMain(vFile1(0), 0.162182, 0.000001));
     //assert(vFile1(3) == 0.528533);
-    vB += 1;
-    vB.display(std::cout);
-    vB += vB;
-    vB.display(std::cout);
-    Dvector vBAddG(0.5+vB); vBAddG.display(std::cout);
-    Dvector vBAddD(vB+(-3)); vBAddD.display(std::cout);
-    Dvector vBAdd(vB+vB); vBAdd.display(std::cout);
-    std::cout << "Test << :\n";
-    std::cout << vB;
-    std::cout<<" OK \n";
-     
-    Dvector vBAffect;
-    std::cout << "Test affectation : \n";
-    vB = vB; 
-    std::cout << "Autoaffectation : \n";
-    std::cout << vB;
-    std::cout<<" OK \n";
-    vBAffect = vB;
-    std::cout << "vecteur 1: \n";
-    std::cout << vB;
-    std::cout << " = vecteur 2: \n";
-    std::cout << vBAffect;
-    std::cout<<" OK \n";
-
-    std::cout << "Test sur la soustraction\n";
-    vB -= 1;
-    vB.display(std::cout);
-    vB -= 6 *vB;
-    vB.display(std::cout);
-    Dvector vBSubG(0.5-vB); vBSubG.display(std::cout);
-    Dvector vBSubD(vB-(-3)); vBSubD.display(std::cout);
-    Dvector vBSub(vB-vB); vBSub.display(std::cout);
-    std::cout << "Test << \n";
-    std::cout << vB;
+    */
+    vA += -1.25;
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "-1.25\n-1.25\n-1.25\n");
+    std::cout << "Test de l'opérateur += avec un double [PASSED]" << std::endl; 
+    vA += vA;
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "-2.50\n-2.50\n-2.50\n");
+    std::cout << "Test de l'opérateur += avec un vecteur [PASSED]" << std::endl;
+    vA -= -1.25;
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "-1.25\n-1.25\n-1.25\n");
+    std::cout << "Test de l'opérateur -= avec un double [PASSED]" << std::endl; 
+    vA -= vA;
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "0.00\n0.00\n0.00\n");
+    std::cout << "Test de l'opérateur -= avec un vecteur [PASSED]" << std::endl;
     
-    std::cout << "Test sur la multiplication\n";
-    vB *= 1;
-    vB.display(std::cout);
-    Dvector vBMultG(0.5*vB); vBMultG.display(std::cout);
-    Dvector vBMultD(vB*(-3)); vBMultD.display(std::cout);
-    std::cout << "Test << \n";
-    std::cout << vB;
-    std::cout<<" OK \n";
+    vA += 5;
+    vA *= 5.5; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "27.50\n27.50\n27.50\n");
+    std::cout << "Test de l'opérateur *= avec un double [PASSED]" << std::endl; 
+    vA /= 5.5; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "5.00\n5.00\n5.00\n");
+    std::cout << "Test de l'opérateur /= avec un double [PASSED]" << std::endl;
+    Dvector vD(3,1); 
+    vA = vD; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "1.00\n1.00\n1.00\n");
+    std::cout << "Test de l'opérateur = avec un vecteur [PASSED]" << std::endl;
     
-    std::cout << "Test sur la division\n";
-    vB /= 8;
-    vB.display(std::cout);
-    Dvector vBDivG(0.5/vB); vBDivG.display(std::cout);
-    Dvector vBDivD(vB/(-3)); vBDivD.display(std::cout);
+    std::cout << "\n\n\nTests sur l'addition\n\n\n" << std::endl; 
+    
+    vA = vA + 2.25; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "3.25\n3.25\n3.25\n");
+    std::cout << "Test de l'opérateur + avec un réel à droite [PASSED]" << std::endl;
+    vA = 2.75 + vA; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "6.00\n6.00\n6.00\n");
+    std::cout << "Test de l'opérateur + avec un réel à gauche [PASSED]" << std::endl;
+    vA = vA + vA; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "12.00\n12.00\n12.00\n");
+    std::cout << "Test de l'opérateur + entre deux vecteurs [PASSED]" << std::endl;
+    
+    
+    std::cout << "\n\n\nTests sur la soustraction\n\n\n" << std::endl; 
+    vA = vA - 2.25; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "9.75\n9.75\n9.75\n");
+    std::cout << "Test de l'opérateur - avec un réel à droite [PASSED]" << std::endl;
+    vA = 19.75 - vA; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "10.00\n10.00\n10.00\n");
+    std::cout << "Test de l'opérateur - avec un réel à gauche [PASSED]" << std::endl;
+    vA = vA - vD; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "9.00\n9.00\n9.00\n");
+    std::cout << "Test de l'opérateur - entre deux vecteurs [PASSED]" << std::endl;
+    
+    std::cout << "\n\n\nTests sur la multiplication\n\n\n" << std::endl; 
+    vA(0) = 1;
+    vA(1) = 2; 
+    vA(2) = 3; 
+    vA = vA * 2; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "2.00\n4.00\n6.00\n");
+    std::cout << "Test de l'opérateur * avec un réel à droite [PASSED]" << std::endl;
+    vA = 2.257 * vA; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "4.514\n9.028\n13.542\n");
+    std::cout << "Test de l'opérateur * avec un réel à gauche [PASSED]" << std::endl;
+    
+    std::cout << "\n\n\nTests sur la division\n\n\n" << std::endl; 
+    
+    vA(0) = 1;
+    vA(1) = 2; 
+    vA(2) = 4; 
+    vA = vA / 2; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "0.50\n1.00\n2.00\n");
+    std::cout << "Test de l'opérateur / avec un réel à droite [PASSED]" << std::endl;
+    vA = 2 / vA; 
+    ss.str("");
+    vA.display(ss); 
+    assert(ss.str() == "4.00\n2.00\n1.00\n");
+    std::cout << "Test de l'opérateur / avec un réel à gauche [PASSED]" << std::endl;
+    
 
-    std::cout << "Test << \n";
-    std::cout << vB;
-
-    std::cout << "Test >> \n";
+    std::cout << "Test << [PASSED]\n";
+    std::cout << "Test >> [PASSED]\n";
     std::stringstream streamTest;
     Dvector vStream(3);
     streamTest << vB;
     streamTest >> vStream;
-    vStream.display(std::cout);
+    assert(streamTest.str() == "1.00\n1.00\n1.00\n1.00\n1.00\n");
+    ss.str(""); 
+    vStream.display(ss); 
+    assert(ss.str() == "1.00\n1.00\n1.00\n"); 
+    std::cout << "Test << [PASSED]\n";
+    std::cout << "Test >> [PASSED]\n";
+    
+    
 
-    std::cout << "Test == \n";
     Dvector v5(5, 0.001);
     Dvector v3(3, 0.001);
     Dvector vDiff5(5, 0.002);
@@ -196,16 +259,23 @@ int main()
     assert(v5 == vEq5);
     assert(!(v5 == vDiff5));
     assert(!(v5 == v3));
-    std::cout<<" OK \n";
+    std::cout << "Test == [PASSED] \n";
     
-    std::cout << "Test resize() \n";
+
     Dvector vResize(5, 1);
-    std::cout << "Test 3\n";
     vResize.resize(3);
-    std::cout << vResize;
-    std::cout << "Test 7 - > 1\n";
+    ss.str(""); 
+    vResize.display(ss); 
+    assert(ss.str() == "1.00\n1.00\n1.00\n"); 
+  
     vResize.resize(7, 1.0, 1.0, 1.0, 1.0);
-    std::cout << vResize;
+    ss.str(""); 
+    vResize.display(ss); 
+    assert(ss.str() == "1.00\n1.00\n1.00\n1.00\n1.00\n1.00\n1.00\n"); 
+    std::cout << "Test resize() [PASSED]\n";
+    
+    Dvector vE(10,2.45678); 
+    Dvector vF(vE);
 
     //std::cout << "Test division par 0 << \n";
     //vB /= 0;
