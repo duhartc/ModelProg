@@ -244,7 +244,6 @@ Dvector & Dvector::operator += (double x) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator -= (double x) {
-  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   for (int i = 0; i < size(); i++) {
 	v[i] -= x;
       }
@@ -257,7 +256,6 @@ Dvector & Dvector::operator -= (double x) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator *= (double x) {
-  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   for (int i = 0; i < size(); i++) {
 	v[i] *= x;
       }
@@ -270,7 +268,6 @@ Dvector & Dvector::operator *= (double x) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator /= (double x) {
-  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   if (x == 0) {
       throw std::logic_error("division by 0");
   }

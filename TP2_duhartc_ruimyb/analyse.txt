@@ -24,3 +24,20 @@ L'expression ci-dessus utilise directement les variables passées en paramètre.
 Ici, on passe les paramètres par référence en spécifiant qu'ils sont non-modifiables. Au cours de l'appel, des variables locales seront crées auxquelles les valeurs de a et b seront affectées. Le passage par référence permet aussi d'améliorer la vitesse d'accès aux données de la variable source. 
 
 Question 4 :
+
+Nous avons identifiés des groupes d'opérateurs/fonctions permettants des factorisations de codes. 
+
+Ceux que nous avons factorisés:
+
+Nous utilisons l'opérateur d'affectation dans le constructeur par copie. 
+La fonctions display et l'opérateur << étant clairement liés, nous utilisons la fonction dans ce dernier. 
+Le moins unaire utilise le *= entre un vecteur et un réel.
+Quand cela est judicieux, nous utilisons le moins unaire combiné à l'opérateur d'addition dans l'implémentation de l'opérateur de soustraction. De plus, nous réutilisons un opérateur lors de l'implémentation de ce même opérateur avec des membres différents. Par exemple, l'addition avec un vecteur à gauche et un réel ainsi que l'addition avec un vecteur à droite et un réel. 
+Pour chacun des opérateurs +, *, /, - nous utilisons les opérateurs internes associés +=, *=, /=, -= combinés au constructeur par copie. 
+Bien entendu, l'opérateur d'accession est utilisé dès que cela est necessecaire. 
+
+Les autres factorisations possibles:
+
+Nous avons préféré gérer l'implémentation de la fonction resize sans utiliser de factorisation pour limiter les erreurs. Cependant, on peut constater qu'un factorisation avec l'affectation serait possible. 
+
+
