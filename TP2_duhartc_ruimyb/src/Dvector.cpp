@@ -118,12 +118,7 @@ void Dvector::fillRandomly() {
  */
 Dvector::Dvector(const Dvector &vect) {
     std::cout<<"[APPEL AU CONSTRUCTEUR PAR COPIE POUR L'OBJET : "<<this<<" ]"<<endl;
-    vsize = vect.vsize;
-    if (vsize==0) return;
-    v = new double[vsize];
-    for (unsigned int i = 0; i < vsize ; i++) {
-        v[i] = vect.v[i]; //copy
-    }
+    *this = vect;
 } 
 
 /*!
