@@ -41,4 +41,6 @@ Les autres factorisations possibles:
 Nous avons préféré gérer l'implémentation de la fonction resize sans utiliser de factorisation pour limiter les erreurs. Cependant, on peut constater qu'un factorisation avec l'affectation serait possible. 
 Nous aurions aussi pu utiliser l'affectation dans le constructeur avec définition de la taille. 
 
+Question 5 :
+
 
