@@ -118,12 +118,7 @@ void Dvector::fillRandomly() {
  */
 Dvector::Dvector(const Dvector &vect) {
     std::cout<<"[APPEL AU CONSTRUCTEUR PAR COPIE POUR L'OBJET : "<<this<<" ]"<<endl;
-    vsize = vect.vsize;
-    if (vsize==0) return;
-    v = new double[vsize];
-    for (unsigned int i = 0; i < vsize ; i++) {
-        v[i] = vect.v[i]; //copy
-    }
+    *this = vect;
 } 
 
 /*!
@@ -249,7 +244,6 @@ Dvector & Dvector::operator += (double x) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator -= (double x) {
-  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   for (int i = 0; i < size(); i++) {
 	v[i] -= x;
       }
@@ -262,7 +256,6 @@ Dvector & Dvector::operator -= (double x) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator *= (double x) {
-  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   for (int i = 0; i < size(); i++) {
 	v[i] *= x;
       }
@@ -275,7 +268,6 @@ Dvector & Dvector::operator *= (double x) {
  * \return le vecteur resultant (dans entrée)
  */
 Dvector & Dvector::operator /= (double x) {
-  //on aurait aussi pu utiliser un constructeur Dvector(size(),x)
   if (x == 0) {
       throw std::logic_error("division by 0");
   }
