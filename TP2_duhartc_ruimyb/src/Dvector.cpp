@@ -460,11 +460,8 @@ Dvector & Dvector::operator = (const Dvector &Dv){
   }
   return *this;
 }
-
 /*
- * 53secs
- * 
- * 
+ 
 Dvector & Dvector::operator = (const Dvector &Dv){
   //Méthode avec boucle  
   if (&Dv != this) {

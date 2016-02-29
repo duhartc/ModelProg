@@ -22,7 +22,7 @@ bool compDoubleMain(double x, double y, double precision) {
 
 int main()
 {
-
+    
   // TP1
 
     Dvector v;
@@ -234,11 +234,10 @@ int main()
     ss.str("");
     vA.display(ss); 
     assert(ss.str() == "4.00\n2.00\n1.00\n");
-    std::cout << "Test de l'opérateur / avec un réel à gauche [PASSED]" << std::endl;
+    std::cout << "Test de l'opérateur / avec un réel à gauche [PASSED] \n\n\n" << std::endl;
     
 
-    std::cout << "Test << [PASSED]\n";
-    std::cout << "Test >> [PASSED]\n";
+    
     std::stringstream streamTest;
     Dvector vStream(3);
     streamTest << vB;
@@ -248,7 +247,7 @@ int main()
     vStream.display(ss); 
     assert(ss.str() == "1.00\n1.00\n1.00\n"); 
     std::cout << "Test << [PASSED]\n";
-    std::cout << "Test >> [PASSED]\n";
+    std::cout << "Test >> [PASSED]\n\n\n";
     
     
 
@@ -259,9 +258,10 @@ int main()
     assert(v5 == vEq5);
     assert(!(v5 == vDiff5));
     assert(!(v5 == v3));
-    std::cout << "Test == [PASSED] \n";
+    std::cout << "Test == [PASSED] \n\n\n";
     
 
+    
     Dvector vResize(5, 1);
     vResize.resize(3);
     ss.str(""); 
@@ -272,9 +272,9 @@ int main()
     ss.str(""); 
     vResize.display(ss); 
     assert(ss.str() == "1.00\n1.00\n1.00\n1.00\n1.00\n1.00\n1.00\n"); 
-    std::cout << "Test resize() [PASSED]\n";
+    std::cout << "Test resize() [PASSED]\n\n\n\n\n";
     
-    Dvector vE(10,2.45678); 
+    Dvector vE(10000000,1); 
     Dvector vF(vE);
 
     //std::cout << "Test division par 0 << \n";
