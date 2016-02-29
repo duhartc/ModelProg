@@ -43,4 +43,11 @@ Nous aurions aussi pu utiliser l'affectation dans le constructeur avec définiti
 
 Question 5 :
 
+Afin de comparer les performances de l'opérateur = si on utilise ou non la fonction memcpy pour recopier les données, nous avons testé la recopie d'un vecteur de taille 10 000 000. Après cinq exécutions dans chacun des cas, nous obtenons une moyenne de 272ms avec la fonction memcpy et de 421ms sans la fonction memcpy. ( Les tests ayant été effectués avec le même ordinateur dont le processeur est un intel Core i7 de 1.7GHz ). 
+
+On peut donc en conclure que la fonction memcpy, dont le but est d'effectuer une copie de n octets depuis la zone mémoire source vers la zone mémoire destination est plus rapide sur les grosses sections. 
+
+Il faudra donc utiliser l'opérateur = avec la fonction memcpy pour manipuler de gros vecteurs. 
+
+
 
