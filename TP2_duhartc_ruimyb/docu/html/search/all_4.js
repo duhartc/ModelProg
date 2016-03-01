@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomuniform',['randomUniform',['../Dvector_8cpp.html#a34abaab5be2f53c0b5ad2eba633bd024',1,'Dvector.cpp']]]
+  ['nbdecimal',['nbDecimal',['../Dvector_8cpp.html#ad9861b68cde6cb79c2bd9c47c6f890a9',1,'Dvector.cpp']]]
 ];

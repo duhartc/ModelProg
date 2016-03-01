@@ -1,3 +1,2 @@
-Le Makefile à la source de notre dossier de rendu permet de générer la documentation (make docu). La commande make check permet uniquement de générer l'executable. Les 2 peuvent etre lancé en meme temps avec make all. 
+Le Makefile à la source de notre dossier de rendu permet de générer la documentation (make doc). La commande make check permet uniquement de générer l'executable. Les 2 peuvent etre lancé en meme temps avec make all. 
 Pour lancer notre test, il faut utiliser le Makefile du dossier /src avec la commande make test. 
-N'ayant pas bien compris l'utilité de l'imbriquation des Makefiles, nous avons une certaine redondance dans les Makefile. Cela sera bien sur corrigé et amélioré au prochain TP.

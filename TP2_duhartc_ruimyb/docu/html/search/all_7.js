@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7edvector',['~Dvector',['../classDvector.html#a3156d0776c5da1a15685970200ec6b96',1,'Dvector']]]
+  ['size',['size',['../classDvector.html#af92b914997c31751ca7f805f63e0d543',1,'Dvector']]]
 ];

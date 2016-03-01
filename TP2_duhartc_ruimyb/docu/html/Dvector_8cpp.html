@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,6 +102,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
 <code>#include &lt;iomanip&gt;</code><br/>
+<code>#include &lt;stdexcept&gt;</code><br/>
+<code>#include &lt;cstring&gt;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
+<code>#include &lt;cstdarg&gt;</code><br/>
 </div>
 <p><a href="Dvector_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,6 +115,36 @@ Functions</h2></td></tr>
 <tr class="separator:ad9861b68cde6cb79c2bd9c47c6f890a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34abaab5be2f53c0b5ad2eba633bd024"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a34abaab5be2f53c0b5ad2eba633bd024">randomUniform</a> ()</td></tr>
 <tr class="separator:a34abaab5be2f53c0b5ad2eba633bd024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3dc8b746af2bd881be34fd99b01df89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#ac3dc8b746af2bd881be34fd99b01df89">operator+</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv, double x)</td></tr>
+<tr class="separator:ac3dc8b746af2bd881be34fd99b01df89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c913b6d87da33ca1b8df786716a0a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#ab2c913b6d87da33ca1b8df786716a0a2">operator-</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv, double x)</td></tr>
+<tr class="separator:ab2c913b6d87da33ca1b8df786716a0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c7c7d7c1bd02a9cfdd76f6351030164"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a4c7c7d7c1bd02a9cfdd76f6351030164">operator*</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv, double x)</td></tr>
+<tr class="separator:a4c7c7d7c1bd02a9cfdd76f6351030164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a440c34021d40175310a66bc19a583978"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a440c34021d40175310a66bc19a583978">operator/</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv, double x)</td></tr>
+<tr class="separator:a440c34021d40175310a66bc19a583978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab11e73a3c6f21e4409df7b894c4ace50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#ab11e73a3c6f21e4409df7b894c4ace50">operator+</a> (double x, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:ab11e73a3c6f21e4409df7b894c4ace50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2368e89714b584f97d6aba69f1901af1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a2368e89714b584f97d6aba69f1901af1">operator-</a> (double x, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:a2368e89714b584f97d6aba69f1901af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90e17d01d9424e5c3087113cd32e4a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#ac90e17d01d9424e5c3087113cd32e4a7">operator*</a> (double x, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:ac90e17d01d9424e5c3087113cd32e4a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a395fa36e310f04c9102369b12cbe2d7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a395fa36e310f04c9102369b12cbe2d7d">operator/</a> (double x, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:a395fa36e310f04c9102369b12cbe2d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b20ff3a37fd41e71d5845102c78e4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a83b20ff3a37fd41e71d5845102c78e4b">operator+</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv1, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv2)</td></tr>
+<tr class="separator:a83b20ff3a37fd41e71d5845102c78e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d8d6007f2ed5c16ad737f531c486052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a4d8d6007f2ed5c16ad737f531c486052">operator-</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv1, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv2)</td></tr>
+<tr class="separator:a4d8d6007f2ed5c16ad737f531c486052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f61630f0ac4e256737b678f48d09ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDvector.html">Dvector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a51f61630f0ac4e256737b678f48d09ec">operator-</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:a51f61630f0ac4e256737b678f48d09ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9599d6b0ab85ffe4a43bc4efd2065d70"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a9599d6b0ab85ffe4a43bc4efd2065d70">operator&lt;&lt;</a> (std::ostream &amp;O, const <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:a9599d6b0ab85ffe4a43bc4efd2065d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c9018cf2e387e8bd61123df32ffa94"><td class="memItemLeft" align="right" valign="top">istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a39c9018cf2e387e8bd61123df32ffa94">operator&gt;&gt;</a> (std::istream &amp;I, <a class="el" href="classDvector.html">Dvector</a> &amp;Dv)</td></tr>
+<tr class="separator:a39c9018cf2e387e8bd61123df32ffa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4f7b36ee96b8d580601481e4032ac5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a9a4f7b36ee96b8d580601481e4032ac5">compDouble</a> (double x, double y, double precision)</td></tr>
+<tr class="separator:a9a4f7b36ee96b8d580601481e4032ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a690950f8b48c6c4e0cfb50dd6409598c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dvector_8cpp.html#a690950f8b48c6c4e0cfb50dd6409598c">operator==</a> (const <a class="el" href="classDvector.html">Dvector</a> &amp;vG, const <a class="el" href="classDvector.html">Dvector</a> &amp;vD)</td></tr>
+<tr class="separator:a690950f8b48c6c4e0cfb50dd6409598c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ensemble des fonctions de la classe <a class="el" href="classDvector.html">Dvector</a>. </p>
@@ -123,6 +157,40 @@ Benjamin Ruimy </dd></dl>
 
 <p>Definition in file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a9a4f7b36ee96b8d580601481e4032ac5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool compDouble </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>precision</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00483">483</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad9861b68cde6cb79c2bd9c47c6f890a9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +205,514 @@ Benjamin Ruimy </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00054">54</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00063">63</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c7c7d7c1bd02a9cfdd76f6351030164"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur de multiplication entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv</td><td>reference au vecteur de base </td></tr>
+    <tr><td class="paramname">x</td><td>le double à soustraire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00310">310</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac90e17d01d9424e5c3087113cd32e4a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur de multiplication entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>le double à multiplier </td></tr>
+    <tr><td class="paramname">v</td><td>reference au vecteur de base </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00357">357</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3dc8b746af2bd881be34fd99b01df89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur d'addition entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv</td><td>reference au vecteur de base </td></tr>
+    <tr><td class="paramname">x</td><td>le double à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00286">286</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab11e73a3c6f21e4409df7b894c4ace50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator+ </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur d'addition entre un vecteur et un réel (droite) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>le double à ajouter </td></tr>
+    <tr><td class="paramname">v</td><td>reference au vecteur de base </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00337">337</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83b20ff3a37fd41e71d5845102c78e4b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur d'addition entre deux vecteurs </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv1</td><td>reference au premier vecteur </td></tr>
+    <tr><td class="paramname">Dv2</td><td>reference au deuxième vecteur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00387">387</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2c913b6d87da33ca1b8df786716a0a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur de soustraction entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv</td><td>reference au vecteur de base </td></tr>
+    <tr><td class="paramname">x</td><td>le double à soustraire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00298">298</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2368e89714b584f97d6aba69f1901af1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur de soustraction entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>le double à multiplier </td></tr>
+    <tr><td class="paramname">v</td><td>reference au vecteur de base </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00347">347</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d8d6007f2ed5c16ad737f531c486052"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur soustraction entre deux vecteurs </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv1</td><td>reference au premier vecteur </td></tr>
+    <tr><td class="paramname">Dv2</td><td>reference au deuxième vecteur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00399">399</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51f61630f0ac4e256737b678f48d09ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur moins unaire </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv</td><td>reference au vecteur sur lequel on applique le moins </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00413">413</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a440c34021d40175310a66bc19a583978"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur de division entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dv</td><td>reference au vecteur de base </td></tr>
+    <tr><td class="paramname">x</td><td>le double à diviser </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00322">322</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a395fa36e310f04c9102369b12cbe2d7d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDvector.html">Dvector</a> operator/ </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur de soustraction entre un vecteur et un réel (gauche) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>le double à multiplier </td></tr>
+    <tr><td class="paramname">v</td><td>reference au vecteur de base </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur resultant de l'opération </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00367">367</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9599d6b0ab85ffe4a43bc4efd2065d70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>O</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur &lt;&lt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">O</td><td>référence au flux de sortie </td></tr>
+    <tr><td class="paramname">Dv</td><td>référence au vecteur à retourner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>un flux de sortie </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00425">425</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a690950f8b48c6c4e0cfb50dd6409598c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>vG</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>vD</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur == </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vG</td><td>référence au vecteur de gauche </td></tr>
+    <tr><td class="paramname">vD</td><td>référence au vecteur de droite </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>booleen </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00496">496</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39c9018cf2e387e8bd61123df32ffa94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">istream&amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>I</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classDvector.html">Dvector</a> &amp;&#160;</td>
+          <td class="paramname"><em>Dv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Operateur &gt;&gt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I</td><td>référence au flux d'entrée </td></tr>
+    <tr><td class="paramname">Dv</td><td>référence au vecteur à retourner </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>un flux d'entrée </dd></dl>
+
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00436">436</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
 
 </div>
 </div>
@@ -154,14 +729,14 @@ Benjamin Ruimy </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00087">87</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Dvector_8cpp_source.html#l00096">96</a> of file <a class="el" href="Dvector_8cpp_source.html">Dvector.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 9 2016 00:00:51 for Modélisation et Programmation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 29 2016 23:00:39 for Modélisation et Programmation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

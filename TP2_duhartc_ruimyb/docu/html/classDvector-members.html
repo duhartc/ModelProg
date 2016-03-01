@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,20 +88,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="classDvector.html">Dvector</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#af66e4bdf60171463c01eea1039eecdb1">display</a>(std::ostream &amp;str)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a38e7631a6fc81ca7355b2c7361ceed95">display</a>(std::ostream &amp;str) const </td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classDvector.html#adf0f620df0feef3311f7d198e649a298">Dvector</a>()</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a195ec4659741dccbcaa7bfc7fc9e0c1f">Dvector</a>(unsigned int s, double optionalInitVal=0)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classDvector.html#a639afdd0a9e209b34eec03fadc0f79c0">Dvector</a>(const Dvector &amp;vect)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#aaad8a83600efdc7f6f21d72e81b95b3d">Dvector</a>(std::string str)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a80032a31ca256a9b431af288afe18ef1">Dvector</a>(const std::string str)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classDvector.html#a6fecdca0fbad7f928403597e322234b1">fillRandomly</a>()</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a964b4f5cc235ba6aaf9c5e437318be87">size</a>()</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classDvector.html#adb74ecd439c88f50a2a88e2c0e8ef81b">v</a></td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a72ab2c3df3f035671beee6defcf2ba21">vsize</a></td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#ae355bf2da1777227c39e5687810c1b41">operator()</a>(int i)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDvector.html#ab36d783942e527645ae497ff7fe2e038">operator()</a>(int i) const </td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#ac27c43c4e0bd1eb0265576d5a68ead3f">operator*=</a>(const double x)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDvector.html#a9af1debce834929d2c4b1e90c79befd4">operator+=</a>(const Dvector &amp;Dv)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#ae466cfcba27ecc3f0dbd105741b77b01">operator+=</a>(const double x)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDvector.html#a4c436c096879cc852f764811aa8f54b0">operator-=</a>(const Dvector &amp;Dv)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a1a1db7e4489c664911eacb72fa24ba54">operator-=</a>(const double x)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDvector.html#a9bda40f7eb52c249f0cb1e4e7886ca9e">operator/=</a>(const double x)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#a764612925de990d6879855ff62c0ebea">operator=</a>(const Dvector &amp;Dv)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDvector.html#ab264a4d5df83721b4baa720d4d92ab11">resize</a>(unsigned int newSize,...)</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDvector.html#af92b914997c31751ca7f805f63e0d543">size</a>() const </td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classDvector.html#a3156d0776c5da1a15685970200ec6b96">~Dvector</a>()</td><td class="entry"><a class="el" href="classDvector.html">Dvector</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 9 2016 00:00:51 for Modélisation et Programmation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 29 2016 23:00:39 for Modélisation et Programmation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

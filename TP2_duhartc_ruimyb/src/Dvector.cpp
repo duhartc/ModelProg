@@ -42,14 +42,12 @@ Dvector::Dvector(unsigned int s, double optionalInitVal) {
     //optionalInitVal = 0 if no value
     cout << "[APPEL AU CONSTRUCTEUR A DEUX PARAMETRES POUR L'OBJET : " << this << " ] " <<endl; 
     vsize = s;
-    if (vsize == 0) {
+    if (vsize==0) {
       v = NULL;
     }
-    else {
-      v = new double[vsize];
-      for (unsigned int i = 0; i < vsize ; i++) {
+    v = new double[vsize];
+    for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = optionalInitVal;
-      }
     }
 }
 /*!
@@ -118,7 +116,13 @@ void Dvector::fillRandomly() {
  */
 Dvector::Dvector(const Dvector &vect) {
     std::cout<<"[APPEL AU CONSTRUCTEUR PAR COPIE POUR L'OBJET : "<<this<<" ]"<<endl;
-    *this = vect;
+    vsize = vect.vsize;
+    if (vsize==0) return;
+    v = new double[vsize];
+    for (unsigned int i = 0; i < vsize ; i++) {
+        v[i] = vect.v[i]; //copy
+    }
+
 } 
 
 /*!
@@ -449,13 +453,19 @@ istream& operator >>(std::istream& I, Dvector & Dv){
 Dvector & Dvector::operator = (const Dvector &Dv){
   //Méthode avec memcpy
   if (&Dv != this) {
+    unsigned int oldSize = vsize;
     vsize = Dv.size();
     if (vsize == 0) {
+      if (oldSize > 0) {
+	delete [] v;
+      }
       v = NULL;
     }
     else {
-      v = new double[vsize];
-      std::memcpy(v, Dv.v, vsize * sizeof(double));
+      //v = new double[vsize];
+      //std::memcpy(v, Dv.v, vsize * sizeof(double));
+      Dvector DvCopy(Dv);
+      std::swap(v, DvCopy.v);
     }
   }
   return *this;

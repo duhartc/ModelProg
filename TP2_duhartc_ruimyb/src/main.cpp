@@ -282,7 +282,9 @@ int main()
     //Dvector vBTestG(vB/0); vBTestG.display(std::cout);
     
     
-    
+    //fuite
+    Dvector vfuite(5); vfuite = Dvector(0);
+    vfuite.display(std::cout);
     
 
     return(0);
