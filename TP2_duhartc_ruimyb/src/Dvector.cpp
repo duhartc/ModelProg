@@ -531,10 +531,14 @@ void Dvector::resize(unsigned int newSize, ...) {
     unsigned int oldSize = vsize;
     vsize = newSize;
     if (vsize==0) {
+      if (oldSize > 0) {
+	delete [] v;
+      }
       v = NULL;
     }
     else if (newSize < oldSize) {
       double * newV = new double[vsize];
+      //couteux, eventuellement, garder le vecteur trop grand en mémoire
       std::memcpy(newV, v, vsize * sizeof(double));
       delete [] v;
       v = newV;

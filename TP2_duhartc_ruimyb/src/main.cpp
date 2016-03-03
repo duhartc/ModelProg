@@ -282,11 +282,20 @@ int main()
     //Dvector vBTestG(vB/0); vBTestG.display(std::cout);
     
     
-    //fuite
+    //fuite + tester toutes les affectations avec null
     Dvector vfuite(5); vfuite = Dvector(0);
     vfuite.display(std::cout);
     
+    //test resize bis
+    Dvector vVide;
+    vVide.resize(3, 1.0);
+    std::cout<< vVide << "Taille: " << vVide.size() << "\n" ;
+    
+    Dvector vToVide(5, 1);
+    vToVide.resize(0);
+    std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
+    vToVide.resize(3);
+    std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
 
     return(0);
-    // les exceptions (dans les assert) try catch avec assert true false
 }
