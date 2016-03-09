@@ -1,17 +1,27 @@
+/*! \file Darray.cpp
+ *  \brief     Ensemble des fonctions de la classe Dvector
+ *  \author    Claudia Duhart 
+ *  \author    Benjamin Ruimy
+ *  \version   1.0
+ *  \date      2015
+ *  \warning   Usage: Dvector
+ */
 
-#ifndef DVECTOR
-#define DVECTOR
+#include "Dvector.h"
 
-#include <iostream>
-#include <string>
-#include "Darray.h"
 
- 
+Dvector::Dvector():Darray() {}
 
-class Dvector : public Darray
-{
-  Dvector();
-  Dvector(unsigned int s, double optionalInitVal = 0);
-};
+Dvector::Dvector(unsigned int s, double optionalInitVal):Darray(s,optionalInitVal) {}
 
-#endif
+Dvector::Dvector(const Dvector & vect){}
+
+Dvector::Dvector(const std::string str){}
+
+//Dvector & Dvector::operator = (const Darray &Dv) {
+Dvector & Dvector::operator = (const Dvector &Dv) {
+    //Darray::operator=(Dv);
+    //(Darray)*this = Dv;
+    return *this;
+}
+
