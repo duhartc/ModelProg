@@ -20,5 +20,6 @@ class Dmatrix : public Darray
         int columns() const;
         double & operator () (int i, int j); 
         double operator () (int i, int j) const;
+        Dmatrix & operator = (const Dmatrix &Dm);
 };
 #endif

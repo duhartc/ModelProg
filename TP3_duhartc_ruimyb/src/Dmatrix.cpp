@@ -50,3 +50,13 @@ double Dmatrix::operator () (int i, int j) const {
   }
   return v[j + i*n];
 }
+
+Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
+    // TODO : A REVOIR
+    if (&Dm != this) {
+        m = Dm.lines();
+        n = Dm.columns();
+        this->Darray::operator=(Dm);
+    }
+    return *this;
+}
