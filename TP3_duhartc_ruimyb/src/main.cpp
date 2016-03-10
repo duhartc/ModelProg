@@ -297,6 +297,13 @@ int main()
     std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
     vToVide.resize(3);
     std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
+    
+     //TP 3
+    std::cout << "\n\n\n\n Tests sur le TP3 : \n\n\n\n";
+    std::cout << "Test produit scalaire : \n\n";
+    Dvector Vps1(10,1); Dvector Vps2(10,2);
+    int produitSca = Vps1 * Vps2;
+    std::cout << "Produit scalaire:" << produitSca << "\n";
 
     return(0);
 }

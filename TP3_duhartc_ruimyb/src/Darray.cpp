@@ -54,7 +54,7 @@ Darray::Darray(unsigned int s, double optionalInitVal) {
  * Desctructeur de Darray
  */
 Darray::~Darray() {
-    cout << "[APPEL AU DESTRUCTEUR de l'objet :"<<this<< " ]" << endl; 
+    //cout << "[APPEL AU DESTRUCTEUR de l'objet :"<<this<< " ]" << endl; 
     delete [] v;
 }
 
