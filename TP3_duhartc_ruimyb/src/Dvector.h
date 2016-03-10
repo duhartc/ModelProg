@@ -10,10 +10,10 @@ class Dvector : public Darray
 {
     public :
   Dvector();
+  ~Dvector();
   Dvector(unsigned int s, double optionalInitVal = 0);
-  Dvector(const Dvector & vect);
+  Dvector(const Darray & vect);
   Dvector(const std::string str);
-  Dvector & operator = (const Dvector &Dv);
 };
 
 #endif

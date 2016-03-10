@@ -14,14 +14,14 @@ Dvector::Dvector():Darray() {}
 
 Dvector::Dvector(unsigned int s, double optionalInitVal):Darray(s,optionalInitVal) {}
 
-Dvector::Dvector(const Dvector & vect){}
-
-Dvector::Dvector(const std::string str){}
-
-//Dvector & Dvector::operator = (const Darray &Dv) {
-Dvector & Dvector::operator = (const Dvector &Dv) {
-    //Darray::operator=(Dv);
-    //(Darray)*this = Dv;
-    return *this;
+Dvector::Dvector(const Darray & vect) : Darray(vect){
+    // on passe en Darray en paramètre pour pouvoir contruire un Dvector à partir d'un Darray
+    // ainsi, on n'a plus besoin de surcharger l'opérateur d'affectation
 }
 
+
+Dvector::Dvector(const std::string str):Darray(str){}
+
+Dvector::~Dvector() { 
+    // rien à faire ici car le déstructeur de Darray est appelé automatiquement
+}
