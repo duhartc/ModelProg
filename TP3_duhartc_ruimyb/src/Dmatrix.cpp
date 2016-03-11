@@ -60,3 +60,24 @@ Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
     }
     return *this;
 }
+
+Dvector Dmatrix::operator * (const Dmatrix & Dm, const Dvector & Dv){
+    if (Dv.size() != Dm.columns())
+        throw std::logic_error("Incompatible sizes (matrix & vector)");
+    Dvector vRes(Dm.lines());
+    for (unsigned int i = 0; i < Dmatrix.lines(); i++){
+       for (unsigned int j = 0; j < Dmatrix.columns(); i++){
+           v(i) += Dm(i,j) + Dv(i);
+       } 
+    }
+    return vRes;
+    
+    
+}
+
+Dmatrix Dmatrix::operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
+    if (Dm1.columns() != Dm2.lines())
+        throw std::logic_error("Incompatible sizes (matrix & matrix)");
+    Dmatrix v(Dm1.lines(), Dm2.columns());
+    
+}

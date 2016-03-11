@@ -22,4 +22,7 @@ class Dmatrix : public Darray
         double operator () (int i, int j) const;
         Dmatrix & operator = (const Dmatrix &Dm);
 };
+
+Dvector operator * (const Dmatrix & Dm, const Dvector & Dv); 
+Dmatrix operator * (const Dmatrix & Dm1, const Dmatrix & Dm2);
 #endif
