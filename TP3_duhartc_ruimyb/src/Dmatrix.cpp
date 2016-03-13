@@ -1,13 +1,16 @@
 #include "Dmatrix.h"
 #include <stdexcept>
 
-Dmatrix::Dmatrix():Darray() {}
-
-Dmatrix::Dmatrix(unsigned int m, unsigned int n, double optionalInitVal):Darray(m*n,optionalInitVal) {
-    m = m;
-    n = n;
+Dmatrix::Dmatrix():Darray() {
+    m = 0;
+    n = 0;
 }
 
+Dmatrix::Dmatrix(int newM, int newN, double optionalInitVal):Darray(newM*newN,optionalInitVal) {
+    m = newM;
+    n = newN;
+}
+        
 Dmatrix::Dmatrix(const Dmatrix & matrix) : Darray(matrix){
     // on passe en Darray en paramètre pour pouvoir contruire un Dvector à partir d'un Darray
     // ainsi, on n'a plus besoin de surcharger l'opérateur d'affectation
@@ -36,7 +39,7 @@ double & Dmatrix::operator () (int i, int j) {
   if (i < 0 || i >= lines() || j < 0 || j >= columns() ) {
     throw std::logic_error("index out of range");
   }
-  return v[j + i*n];
+  return this->Darray::operator()(j + i*n);
 }
 
 /*!
@@ -48,7 +51,7 @@ double Dmatrix::operator () (int i, int j) const {
   if (i < 0 || i >= size() || j < 0 || j >= columns()) {
     throw std::logic_error("index out of range");
   }
-  return v[j + i*n];
+  return this->Darray::operator()(j + i*n);
 }
 
 Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
@@ -61,13 +64,14 @@ Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
     return *this;
 }
 
-Dvector Dmatrix::operator * (const Dmatrix & Dm, const Dvector & Dv){
+Dvector operator * (const Dmatrix & Dm, const Dvector & Dv){
     if (Dv.size() != Dm.columns())
         throw std::logic_error("Incompatible sizes (matrix & vector)");
-    Dvector vRes(Dm.lines());
-    for (unsigned int i = 0; i < Dmatrix.lines(); i++){
-       for (unsigned int j = 0; j < Dmatrix.columns(); i++){
-           v(i) += Dm(i,j) + Dv(i);
+    Dvector vRes(Dm.lines(), 0);
+    for (unsigned int i = 0; i < Dm.lines(); i++){
+       for (unsigned int j = 0; j < Dm.columns(); j++){
+           //std::cout << "(" << i << "," << j << ") ";
+           vRes(i) += Dm(i,j) + Dv(j);
        } 
     }
     return vRes;
@@ -75,9 +79,40 @@ Dvector Dmatrix::operator * (const Dmatrix & Dm, const Dvector & Dv){
     
 }
 
-Dmatrix Dmatrix::operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
+Dmatrix operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
+    //TODO vérifier l'implémentation
     if (Dm1.columns() != Dm2.lines())
         throw std::logic_error("Incompatible sizes (matrix & matrix)");
-    Dmatrix v(Dm1.lines(), Dm2.columns());
+    Dmatrix mRes(Dm1.lines(), Dm2.columns(), 0);
+    for (unsigned int i = 0; i < Dm1.lines(); i++){
+       for (unsigned int j = 0; j < Dm2.columns(); j++){
+           for (unsigned int k = 0; k < Dm1.columns(); k++){
+                std::cout << "(" << i << "," << j << "," << k <<") ";
+                mRes(i,j) +=  Dm1(i,k) * Dm2(k,j);
+           }
+       }
+    }
     
+}
+
+Dmatrix & Dmatrix::transpose(){
+    for (unsigned int i = 0; i < lines(); i++){
+       for (unsigned int j = 0; j < columns(); j++){
+           this->operator()(i,j) = this->Darray::operator()(j*m + i);
+       } 
+    }
+    int temp = m;
+    m = columns();
+    n = temp;
+    return *this;
+}
+
+
+void Dmatrix::display(std::ostream& str) const {
+    for (unsigned int i = 0; i < this->lines() ; i++) {
+        for (unsigned int j = 0; j < this->columns() ; j++) {
+            str << this->operator()(i,j) << " ";
+        }
+        str << "\n";
+    }
 }

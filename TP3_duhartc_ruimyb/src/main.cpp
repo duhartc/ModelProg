@@ -8,6 +8,7 @@
  */
 
 #include "Dvector.h"
+#include "Dmatrix.h"
 #include "assert.h"
 #include "sstream"
 #include <fstream>
@@ -304,6 +305,23 @@ int main()
     Dvector Vps1(10,1); Dvector Vps2(10,2);
     int produitSca = Vps1 * Vps2;
     std::cout << "Produit scalaire:" << produitSca << "\n";
+    
+    Dmatrix m;
+    Dmatrix m1(2,3);
+    Dmatrix m2(3,2,1);
+    m1.display(std::cout);
+    m2.display(std::cout);
+    Dvector vM(3,1);
+    Dvector vMProd;
+    //vMProd = m1 * vM ;
+    //vMProd.display(std::cout);
+    //m = m1 * m2;
+    //Dmatrix mCarre(1,1,1);
+    //mCarre = mCarre * mCarre;
+    //mCarre.display(std::cout);
+    //m.display(std::cout);
+    m1.transpose();
+    m1.display(std::cout);
 
     return(0);
 }

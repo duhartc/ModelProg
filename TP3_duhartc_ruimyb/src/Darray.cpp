@@ -470,8 +470,8 @@ Darray & Darray::operator = (const Darray &Dv){
   }
   return *this;
 }
-/*
  
+/*
 Darray & Darray::operator = (const Darray &Dv){
   //Méthode avec boucle  
   if (&Dv != this) {
@@ -487,8 +487,7 @@ Darray & Darray::operator = (const Darray &Dv){
     }
   }
   return *this;
-}
-*/
+}*/
 
 bool compDouble(double x, double y, double precision) {
   if (std::abs(x - y)  < precision) {
