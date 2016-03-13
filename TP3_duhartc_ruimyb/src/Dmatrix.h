@@ -25,6 +25,8 @@ class Dmatrix : public Darray
         Dmatrix & transpose();
         //TODO à enlever
         void display(std::ostream& str) const;
+        Dvector line(int pos) const;
+        Dvector column(int pos) const;
 };
 
 Dvector operator * (const Dmatrix & Dm, const Dvector & Dv);  

@@ -30,6 +30,28 @@ int Dmatrix::columns() const{
     return n;
 }
 
+Dvector Dmatrix::line(int pos) const{
+    if (pos < 0 || pos >= lines()) {
+    throw std::logic_error("index out of range");
+  }
+    Dvector line(columns());
+    for (unsigned int i = 0; i < columns(); i++) {
+        line(i) = this->operator()(pos,i);
+    }
+    return line;
+}
+        
+Dvector Dmatrix::column(int pos) const{
+    if (pos < 0 || pos >= columns() ) {
+    throw std::logic_error("index out of range");
+  }
+    Dvector col(lines());
+    for (unsigned int i = 0; i < lines(); i++) {
+        col(i) = this->operator()(i, pos);
+    }
+    return col;
+}
+
 /*!
  * Operateur d'accession à un élément de la matrice (accès lecture)
  * @param  i retourne une erreur si i n'est pas un indice de la matrice 

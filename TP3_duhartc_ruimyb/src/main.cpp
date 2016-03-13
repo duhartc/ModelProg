@@ -322,6 +322,10 @@ int main()
     //m.display(std::cout);
     m1.transpose();
     m1.display(std::cout);
+    Dvector vLine = m1.line(1);
+    vLine.display(std::cout);
+    Dvector vCol = m2.column(1);
+    vCol.display(std::cout);
 
     return(0);
 }
