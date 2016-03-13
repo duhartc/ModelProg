@@ -77,7 +77,6 @@ double Dmatrix::operator () (int i, int j) const {
 }
 
 Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
-    // TODO : A REVOIR
     if (&Dm != this) {
         m = Dm.lines();
         n = Dm.columns();
@@ -92,10 +91,10 @@ Dvector operator * (const Dmatrix & Dm, const Dvector & Dv){
     Dvector vRes(Dm.lines(), 0);
     for (unsigned int i = 0; i < Dm.lines(); i++){
        for (unsigned int j = 0; j < Dm.columns(); j++){
-           //std::cout << "(" << i << "," << j << ") ";
            vRes(i) += Dm(i,j) + Dv(j);
        } 
     }
+    
     return vRes;
     
     
@@ -109,12 +108,11 @@ Dmatrix operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
     for (unsigned int i = 0; i < Dm1.lines(); i++){
        for (unsigned int j = 0; j < Dm2.columns(); j++){
            for (unsigned int k = 0; k < Dm1.columns(); k++){
-                std::cout << "(" << i << "," << j << "," << k <<") ";
                 mRes(i,j) +=  Dm1(i,k) * Dm2(k,j);
            }
        }
     }
-    
+    return mRes;
 }
 
 Dmatrix & Dmatrix::transpose(){

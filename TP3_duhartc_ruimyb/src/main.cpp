@@ -307,7 +307,7 @@ int main()
     std::cout << "Produit scalaire:" << produitSca << "\n";
     
     Dmatrix m;
-    Dmatrix m1(2,3);
+    Dmatrix m1(2,3,0);
     Dmatrix m2(3,2,1);
     m1.display(std::cout);
     m2.display(std::cout);
@@ -315,17 +315,17 @@ int main()
     Dvector vMProd;
     //vMProd = m1 * vM ;
     //vMProd.display(std::cout);
-    //m = m1 * m2;
-    //Dmatrix mCarre(1,1,1);
-    //mCarre = mCarre * mCarre;
-    //mCarre.display(std::cout);
-    //m.display(std::cout);
+    m = m1 * m2;
+    Dmatrix mCarre(2,2,1);
+    mCarre = mCarre * mCarre;
+    mCarre.display(std::cout);
+    /*m.display(std::cout);
     m1.transpose();
     m1.display(std::cout);
     Dvector vLine = m1.line(1);
     vLine.display(std::cout);
     Dvector vCol = m2.column(1);
-    vCol.display(std::cout);
+    vCol.display(std::cout);*/
 
     return(0);
 }
