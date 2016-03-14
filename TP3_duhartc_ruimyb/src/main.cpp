@@ -310,7 +310,7 @@ int main()
     Dmatrix m1(2,3,0);
     Dmatrix m2(3,2,1);
     Dmatrix m3(2,2,1); 
-    std::cout << "BEGIN TEST TRANSPOSE \n";
+    std::cout << "\nBEGIN TEST TRANSPOSE \n\n\n";
     m1(0,0) = 11;
     m1(0,1) = 12; 
     m1(0,2) = 13; 
@@ -326,9 +326,9 @@ int main()
     assert(m1(2,1) == 23);   
     
   
-    std::cout << "END TEST TRANSPOSE\n";
+    std::cout << "\nEND TEST TRANSPOSE\n\n\n";
 
-    std::cout << "BEGIN TEST CHOLESKY"; 
+    std::cout << "\nBEGIN TEST CHOLESKY\n\n\n"; 
 
     Dmatrix testCholesky(2,2,1); 
     testCholesky(0,1) = 0; 
@@ -336,7 +336,15 @@ int main()
     testCholesky.transpose();
     testCholesky = A*testCholesky ;
     assert(A == testCholesky.cholesky()); 
-    std::cout << "END TEST CHOLESKY\n"; 
+    
+    Dmatrix testCholesky2(2,2,1.267); 
+    testCholesky2(0,1) = 0; 
+    Dmatrix AA(testCholesky2); 
+    testCholesky2.transpose(); 
+    testCholesky2 = AA*testCholesky2; 
+    assert(AA == testCholesky2.cholesky()); 
+    
+    std::cout << "\nEND TEST CHOLESKY\n\n\n"; 
     
     Dvector vM(3,1);
     Dvector vMProd;
@@ -352,12 +360,12 @@ int main()
     assert(vLine(0) == 21.00); 
     assert(vLine(1) == 22.00);
     assert(vLine(2) == 23.00); 
-    std::cout << "GET LINE OK\n";  
+    std::cout << "\nGET LINE OK\n\n";  
     Dvector vCol = m1.column(1);
     vCol.display(std::cout); 
     assert(vCol(0) == 12.00); 
     assert(vCol(1) == 22.00); 
-    std::cout << "GET COLUMN OK\n" << std::endl;
+    std::cout << "\nGET COLUMN OK\n\n" << std::endl;
       
     
 

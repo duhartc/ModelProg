@@ -206,7 +206,6 @@ Dmatrix & Dmatrix::cholesky(){
         for(int s = 0; s < k;s++){
             res = res + L(k,s) * L(k,s);      
         }
-        std::cout << this->operator()(k,k)-res; 
         L(k,k) = sqrt(this->operator()(k,k) - res);
         for(int i = k+1; i < lines(); i++){
             //std::cout <<"(" <<  i << ","<< k << ")";
