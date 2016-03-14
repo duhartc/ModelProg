@@ -2,16 +2,28 @@
 #include <stdexcept>
 #include <cmath> 
 
+/*!
+ * Constructeur par défaut de Dmatrix
+ */
 Dmatrix::Dmatrix():Darray() {
     m = 0;
     n = 0;
 }
 
+/*!
+ * Constructeur de Dmatrix (avec définition de la taille)
+ * @param  s taille du tableau
+ * @param  optionalInitVal (optionnel) valeur d'initialisation du tableau
+ */
 Dmatrix::Dmatrix(int newM, int newN, double optionalInitVal):Darray(newM*newN,optionalInitVal) {
     m = newM;
     n = newN;
 }
-        
+
+/*!
+ * Constructeur par copie de Dmatrix
+ * @param  matrix Dmatrix à copier
+ */
 Dmatrix::Dmatrix(const Dmatrix & matrix) : Darray(matrix){
     // on passe en Darray en paramètre pour pouvoir contruire un Dvector à partir d'un Darray
     // ainsi, on n'a plus besoin de surcharger l'opérateur d'affectation
@@ -19,18 +31,34 @@ Dmatrix::Dmatrix(const Dmatrix & matrix) : Darray(matrix){
     n = matrix.n;
 }
 
+/*!
+ * Desctructeur de Dmatrix
+ */
 Dmatrix::~Dmatrix() { 
     // rien à faire ici car le déstructeur de Darray est appelé automatiquement
 }
 
+/*!
+ * Nombre de ligne
+ * \return Retourne le nombre de ligne de la matrice
+ */
 int Dmatrix::lines() const{
     return m;
 }
 
+/*!
+ * Nombre de colonne
+ * \return Retourne le nombre de colonne de la matrice
+ */
 int Dmatrix::columns() const{ 
     return n;
 }
 
+/*!
+ * Extraction d'une ligne
+ * @param  pos position de la ligne à extraire 
+ * \return Retourne un Dvector correspondant à la ligne extraite
+ */
 Dvector Dmatrix::line(int pos) const{
     if (pos < 0 || pos >= lines()) {
     throw std::logic_error("index out of range");
@@ -41,7 +69,12 @@ Dvector Dmatrix::line(int pos) const{
     }
     return line;
 }
-        
+
+/*!
+ * Extraction d'une colonne
+ * @param  pos position de la colonne à extraire 
+ * \return Retourne un Dvector correspondant à la colonne extraite
+ */
 Dvector Dmatrix::column(int pos) const{
     if (pos < 0 || pos >= columns() ) {
     throw std::logic_error("index out of range");
@@ -77,6 +110,11 @@ double Dmatrix::operator () (int i, int j) const {
   return this->Darray::operator()(j + i*n);
 }
 
+/*!
+ * Operateur d'affectation
+ * @param  Dm référence vers la matrice à retourner 
+ * \return Retourne un pointeur vers la matrice courante
+ */
 Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
     if (&Dm != this) {
         m = Dm.lines();
@@ -86,6 +124,12 @@ Dmatrix & Dmatrix::operator = (const Dmatrix &Dm) {
     return *this;
 }
 
+/*!
+ * Operateur de multiplication entre une matrice et un vecteur
+ * @param  Dm reference à la matrice
+ * @param  Dv référence au vecteur
+ * \return Un vecteur resultant de l'opération
+ */
 Dvector operator * (const Dmatrix & Dm, const Dvector & Dv){
     if (Dv.size() != Dm.columns())
         throw std::logic_error("Incompatible sizes (matrix & vector)");
@@ -101,8 +145,13 @@ Dvector operator * (const Dmatrix & Dm, const Dvector & Dv){
     
 }
 
+/*!
+ * Operateur de multiplication entre deux matrices
+ * @param  Dm1 reference à la premiere matrice
+ * @param  Dm2 reference à la deuxième matrice
+ * \return Une matrice resultant de l'opération
+ */
 Dmatrix operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
-    //TODO vérifier l'implémentation
     if (Dm1.columns() != Dm2.lines())
         throw std::logic_error("Incompatible sizes (matrix & matrix)");
     Dmatrix mRes(Dm1.lines(), Dm2.columns(), 0);
@@ -116,6 +165,10 @@ Dmatrix operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
     return mRes;
 }
 
+/*!
+ * Permet de transposer la matrice courante (chainable)
+ * \return pointeur sur la matrice résultante
+ */
 Dmatrix & Dmatrix::transpose(){
     for (unsigned int i = 0; i < lines(); i++){
        for (unsigned int j = 0; j < columns(); j++){
@@ -128,6 +181,10 @@ Dmatrix & Dmatrix::transpose(){
     return *this;
 }
 
+/*!
+ * Permet d'appliquer Cholesky sur la matrice courante 
+ * \return pointeur sur la matrice résultante
+ */
 Dmatrix & Dmatrix::cholesky(){
     if(m != n){
         throw std::logic_error("La matrice n'est pas carrée"); 
@@ -153,6 +210,10 @@ Dmatrix & Dmatrix::cholesky(){
     return L; 
 }
 
+/*!
+ * Fonction qui permet d'afficher une Dmatrix
+ * @param  str flux de sortie
+ */
 void Dmatrix::display(std::ostream& str) const {
     for (unsigned int i = 0; i < this->lines() ; i++) {
         for (unsigned int j = 0; j < this->columns() ; j++) {
