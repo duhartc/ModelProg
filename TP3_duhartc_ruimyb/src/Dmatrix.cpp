@@ -1,3 +1,11 @@
+/*! \file Darray.cpp
+ *  \brief     Ensemble des fonctions de la classe Dmatrix
+ *  \author    Claudia Duhart 
+ *  \author    Benjamin Ruimy
+ *  \version   1.0
+ *  \date      2015
+ *  \warning   Usage: Dmatrix 
+ */
 #include "Dmatrix.h"
 #include <stdexcept>
 #include <cmath> 
