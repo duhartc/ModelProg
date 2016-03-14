@@ -293,11 +293,11 @@ int main()
     vVide.resize(3, 1.0);
     std::cout<< vVide << "Taille: " << vVide.size() << "\n" ;
     
-    Dvector vToVide(5, 1);
+    /*Dvector vToVide(5, 1);
     vToVide.resize(0);
     std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
     vToVide.resize(3);
-    std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
+    std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;*/
     
      //TP 3
     std::cout << "\n\n\n\n Tests sur le TP3 : \n\n\n\n";
@@ -323,7 +323,7 @@ int main()
     assert(m1(2,0) == 13); 
     assert(m1(0,1) == 21); 
     assert(m1(1,1) == 22); 
-    assert(m1(2,1) == 23);   
+    assert(m1(2,1) == 23);  
     
   
     std::cout << "END TEST TRANSPOSE\n";
