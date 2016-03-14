@@ -309,13 +309,41 @@ int main()
     Dmatrix m;
     Dmatrix m1(2,3,0);
     Dmatrix m2(3,2,1);
+    Dmatrix m3(2,2,1); 
+    std::cout << "BEGIN TEST TRANSPOSE \n";
+    m1(0,0) = 11;
+    m1(0,1) = 12; 
+    m1(0,2) = 13; 
+    m1(1,0) = 21; 
+    m1(1,1) = 22; 
+    m1(1,2) = 23;   
+    m1.transpose(); 
+    assert(m1(0,0) == 11);
+    assert(m1(1,0) == 12); 
+    assert(m1(2,0) == 13); 
+    assert(m1(0,1) == 21); 
+    assert(m1(1,1) == 22); 
+    assert(m1(2,1) == 23);   
+    
+  
+    std::cout << "END TEST TRANSPOSE\n";
+
+    std::cout << "BEGIN TEST CHOLESKY"; 
+
+    Dmatrix testCholesky(2,2,1); 
+    testCholesky(0,1) = 0; 
+    Dmatrix A(testCholesky);
+    testCholesky.transpose();
+    testCholesky = A*testCholesky ;
+    assert(A == testCholesky.cholesky()); 
+    std::cout << "END TEST CHOLESKY\n"; 
     m1.display(std::cout);
     m2.display(std::cout);
     Dvector vM(3,1);
     Dvector vMProd;
     //vMProd = m1 * vM ;
     //vMProd.display(std::cout);
-    m = m1 * m2;
+    m = m1.transpose() * m2;
     Dmatrix mCarre(2,2,1);
     mCarre = mCarre * mCarre;
     mCarre.display(std::cout);
@@ -326,6 +354,7 @@ int main()
     vLine.display(std::cout);
     Dvector vCol = m2.column(1);
     vCol.display(std::cout);*/
+
 
     return(0);
 }

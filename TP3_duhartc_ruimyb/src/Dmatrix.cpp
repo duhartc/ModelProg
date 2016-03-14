@@ -117,14 +117,14 @@ Dmatrix operator * (const Dmatrix & Dm1, const Dmatrix & Dm2){
 }
 
 Dmatrix & Dmatrix::transpose(){
+    Dmatrix temp2(n,m); 
+    
     for (unsigned int i = 0; i < lines(); i++){
        for (unsigned int j = 0; j < columns(); j++){
-           this->operator()(i,j) = this->Darray::operator()(j*m + i);
+            temp2(j,i) = this->operator()(i,j); 
        } 
     }
-    int temp = m;
-    m = columns();
-    n = temp;
+    *this = temp2;
     return *this;
 }
 
@@ -134,23 +134,27 @@ Dmatrix & Dmatrix::cholesky(){
     }
     //Il faudrait faire un test pour savoir si la matrice en entrée est bien symétrique/définie/positive
     //pour ne pas perdre de temps 
-    Dmatrix L(n,n); 
+    Dmatrix L(lines(),lines(),0); 
     double res; 
-    for (unsigned int k = 0; k < n; k++){
+    for (int k = 0; k < lines(); k++){
         res = 0;
-        for(unsigned int s = 0; s < k-1;s++){
-            res = res + L(k,s) * L(k,s); 
+        for(int s = 0; s < k;s++){
+            res = res + L(k,s) * L(k,s);      
         }
-        this->operator()(k,k) = sqrt(this->operator()(k,k) - res);
-        for(unsigned int i = k+1; i < n; i++){
+        std::cout << this->operator()(k,k)-res; 
+        L(k,k) = sqrt(this->operator()(k,k) - res);
+        for(int i = k+1; i < lines(); i++){
+            //std::cout <<"(" <<  i << ","<< k << ")";
             res = 0; 
-            for(unsigned int s = 0; i < k - 1; s++){
-            res = res + L(i,s)*L(i,k); 
-            } 
+            for(int s = 0; i < k - 1; s++){
+
+            res = res + L(i,s)*L(k,s); 
+            }
             L(i,k) = (this->operator()(i,k) - res) / L(k,k);  
         }
     }
-    return L; 
+    *this = L; 
+   return *this;  
 }
 
 void Dmatrix::display(std::ostream& str) const {
