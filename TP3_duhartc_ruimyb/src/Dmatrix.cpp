@@ -1,5 +1,6 @@
 #include "Dmatrix.h"
 #include <stdexcept>
+#include <cmath> 
 
 Dmatrix::Dmatrix():Darray() {
     m = 0;
@@ -127,6 +128,30 @@ Dmatrix & Dmatrix::transpose(){
     return *this;
 }
 
+Dmatrix & Dmatrix::cholesky(){
+    if(m != n){
+        throw std::logic_error("La matrice n'est pas carrée"); 
+    }
+    //Il faudrait faire un test pour savoir si la matrice en entrée est bien symétrique/définie/positive
+    //pour ne pas perdre de temps 
+    Dmatrix L(n,n); 
+    double res; 
+    for (unsigned int k = 0; k < n; k++){
+        res = 0;
+        for(unsigned int s = 0; s < k-1;s++){
+            res = res + L(k,s) * L(k,s); 
+        }
+        this->operator()(k,k) = sqrt(this->operator()(k,k) - res);
+        for(unsigned int i = k+1; i < n; i++){
+            res = 0; 
+            for(unsigned int s = 0; i < k - 1; s++){
+            res = res + L(i,s)*L(i,k); 
+            } 
+            L(i,k) = (this->operator()(i,k) - res) / L(k,k);  
+        }
+    }
+    return L; 
+}
 
 void Dmatrix::display(std::ostream& str) const {
     for (unsigned int i = 0; i < this->lines() ; i++) {

@@ -27,6 +27,7 @@ class Dmatrix : public Darray
         void display(std::ostream& str) const;
         Dvector line(int pos) const;
         Dvector column(int pos) const;
+        Dmatrix & cholesky(); 
 };
 
 Dvector operator * (const Dmatrix & Dm, const Dvector & Dv);  
