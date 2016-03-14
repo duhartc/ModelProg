@@ -337,8 +337,7 @@ int main()
     testCholesky = A*testCholesky ;
     assert(A == testCholesky.cholesky()); 
     std::cout << "END TEST CHOLESKY\n"; 
-    m1.display(std::cout);
-    m2.display(std::cout);
+    
     Dvector vM(3,1);
     Dvector vMProd;
     //vMProd = m1 * vM ;
@@ -346,15 +345,21 @@ int main()
     m = m1.transpose() * m2;
     Dmatrix mCarre(2,2,1);
     mCarre = mCarre * mCarre;
-    mCarre.display(std::cout);
-    /*m.display(std::cout);
-    m1.transpose();
-    m1.display(std::cout);
+    Dmatrix Res(2,2,2); 
+    assert(mCarre == Res); 
+    //Test GET  LINE et GET COLUMN
     Dvector vLine = m1.line(1);
-    vLine.display(std::cout);
-    Dvector vCol = m2.column(1);
-    vCol.display(std::cout);*/
-
+    assert(vLine(0) == 21.00); 
+    assert(vLine(1) == 22.00);
+    assert(vLine(2) == 23.00); 
+    std::cout << "GET LINE OK\n";  
+    Dvector vCol = m1.column(1);
+    vCol.display(std::cout); 
+    assert(vCol(0) == 12.00); 
+    assert(vCol(1) == 22.00); 
+    std::cout << "GET COLUMN OK\n" << std::endl;
+      
+    
 
     return(0);
 }
