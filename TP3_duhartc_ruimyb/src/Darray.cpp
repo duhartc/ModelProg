@@ -42,9 +42,6 @@ Darray::Darray(unsigned int s, double optionalInitVal) {
     //optionalInitVal = 0 if no value
     cout << "[APPEL AU CONSTRUCTEUR A DEUX PARAMETRES POUR L'OBJET : " << this << " ] " <<endl; 
     vsize = s;
-    if (vsize==0) {
-      v = NULL;
-    }
     v = new double[vsize];
     for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = optionalInitVal;
@@ -117,7 +114,6 @@ void Darray::fillRandomly() {
 Darray::Darray(const Darray &vect) {
     std::cout<<"[APPEL AU CONSTRUCTEUR PAR COPIE POUR L'OBJET : "<<this<<" ]"<<endl;
     vsize = vect.vsize;
-    if (vsize==0) return;
     v = new double[vsize];
     for (unsigned int i = 0; i < vsize ; i++) {
         v[i] = vect.v[i]; //copy
@@ -437,6 +433,7 @@ ostream& operator <<(std::ostream& O, const Darray & Dv){
  * @param  Dv référence au tableau à retourner 
  * \return un flux d'entrée
  */
+
 istream& operator >>(std::istream& I, Darray & Dv){
   for (int i=0; i<Dv.size(); i++) {
     I >> Dv(i);

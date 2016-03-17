@@ -95,6 +95,7 @@ int main()
     Dvector vFile0("test0.txt");
     std::stringstream ssss; 
     vFile0.display(ssss);
+    std::cout << ssss.str(); 
     assert(ssss.str() == "2.00\n3.00\n2.20\n1.00\n");
     std::cout<<" OK \n"; 
     
@@ -293,12 +294,12 @@ int main()
     vVide.resize(3, 1.0);
     std::cout<< vVide << "Taille: " << vVide.size() << "\n" ;
     
-    /*Dvector vToVide(5, 1);
+    Dvector vToVide(5, 1);
     vToVide.resize(0);
     std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
     vToVide.resize(3);
-    std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;*/
-    
+    std::cout<< vToVide << "Taille: " << vToVide.size() << "\n" ;
+   
      //TP 3
     std::cout << "\n\n\n\n Tests sur le TP3 : \n\n\n\n";
     std::cout << "Test produit scalaire : \n\n";
