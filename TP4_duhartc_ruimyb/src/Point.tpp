@@ -9,10 +9,10 @@ Point<T>::Point(const T& a, const T& b){
     this->ordonnee = b;
 }
 template<typename T>
-T Point<T>::x() {
+T Point<T>::x() const{
     return this->abscisse;
 }
 template<typename T>
-T Point<T>::y(){
+T Point<T>::y() const{
     return this->ordonnee;
 }

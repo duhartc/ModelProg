@@ -14,6 +14,12 @@ private:
     Point<T> P3;
 public:
     Triangle(const Point<T>& A, const Point<T>& B, const Point<T>& C);
+
+    Point<T> p1();
+
+    Point<T> p2();
+
+    Point<T> p3();
 };
 
 #include "Triangle.tpp"

@@ -13,10 +13,10 @@ private:
 public:
     Point(const T& a = 0, const T& b = 0);
 
-    T x();
+    T x() const;
 
 
-    T y();
+    T y() const;
 };
 
 #include "Point.tpp"
