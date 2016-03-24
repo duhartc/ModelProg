@@ -17,9 +17,10 @@ private:
 public:
     Maillage(int n, int m, const Point<T>& origin);
 
-    //typename C<Triangle<T>, std::allocator<Triangle<T> > >::const_iterator beginiter();
+    typename C<Triangle<T> >::const_iterator beginiter() const;
 
-    //typename C<Triangle<T>, std::allocator<Triangle<T> > >::const_iterator endiniter();
+    typename C<Triangle<T> >::const_iterator enditer() const;
+
 
 };
 

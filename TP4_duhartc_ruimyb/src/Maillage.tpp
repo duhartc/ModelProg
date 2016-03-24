@@ -5,6 +5,7 @@
 
 
 template <typename T ,template <typename = Triangle<T>, typename = std::allocator<Triangle< T > > > class C>
+
    Maillage<T,C>::Maillage(int n, int m, const Point<T>& origine){
 
 
@@ -27,9 +28,22 @@ template <typename T ,template <typename = Triangle<T>, typename = std::allocato
                         Point<T>(origin.x() + i + 1, origin.y() + j + 1)));
             }
         }
-
-
-
-
     }
+
+template <typename T ,template <typename = Triangle<T>, typename = std::allocator<Triangle< T > > > class C>
+
+    typename C<Triangle<T> >::const_iterator beginiter() {
+        return Maillage<T,C>::mailles.begin();
+    }
+
+template <typename T ,template <typename = Triangle<T>, typename = std::allocator<Triangle< T > > > class C>
+
+    typename C<Triangle<T> >::const_iterator enditer() {
+        return Maillage<T,C>::mailles.end();
+    }
+
+
+
+
+
 
