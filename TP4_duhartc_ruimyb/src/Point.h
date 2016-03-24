@@ -11,7 +11,7 @@ private:
     T abscisse;
     T ordonnee;
 public:
-    Point(const T& a, const T& b);
+    Point(const T& a = 0, const T& b = 0);
 
     T x();
 

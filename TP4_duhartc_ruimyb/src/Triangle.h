@@ -6,9 +6,16 @@
 #define TP4_DUHARTC_RUIMYB_TRIANGLE_H
 
 
+template<typename T>
 class Triangle {
-
+private:
+    Point<T> P1;
+    Point<T> P2;
+    Point<T> P3;
+public:
+    Triangle(const Point<T>& A, const Point<T>& B, const Point<T>& C);
 };
 
+#include "Triangle.tpp"
 
 #endif //TP4_DUHARTC_RUIMYB_TRIANGLE_H

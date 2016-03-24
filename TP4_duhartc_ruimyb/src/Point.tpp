@@ -16,4 +16,3 @@ template<typename T>
 T Point<T>::y(){
     return this->ordonnee;
 }
-
