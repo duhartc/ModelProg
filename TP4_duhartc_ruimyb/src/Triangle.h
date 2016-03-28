@@ -20,8 +20,22 @@ public:
     Point<T> p2();
 
     Point<T> p3();
-};
 
+    void setP1(Point<T> a);
+
+    void setP2(Point<T> a);
+
+    void setP3(Point<T> a);
+
+
+    void transformer( double m11, double m12, double m21, double m22 );
+
+    void deplacer( double dx, double dy );
+
+    void tourner( double angle, const Point<T>& pt );
+
+};
+template <typename T> std::ostream & operator<<( std::ostream &flux, Triangle<T> t);
 #include "Triangle.tpp"
 
 #endif //TP4_DUHARTC_RUIMYB_TRIANGLE_H

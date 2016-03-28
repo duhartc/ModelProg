@@ -6,6 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ")
 set(SOURCE_FILES
     src/main.cpp
     src/Point.tpp
-    src/Point.h src/Triangle.cpp src/Triangle.h)
+    src/Point.h src/Triangle.tpp src/Triangle.h src/Maillage.tpp src/Maillage.h)
 
 add_executable(TP4_duhartc_ruimyb ${SOURCE_FILES})

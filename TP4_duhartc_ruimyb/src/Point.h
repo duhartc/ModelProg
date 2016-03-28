@@ -15,8 +15,19 @@ public:
 
     T x() const;
 
+    void setX(T a);
 
     T y() const;
+
+    void setY(T a);
+
+    Point<T> transformer( double m11, double m12, double m21, double m22 );
+
+    Point<T> deplacer( double dx, double dy );
+
+    Point<T> tourner( double angle, const Point<T>& pt );
+
+
 };
 
 #include "Point.tpp"

@@ -18,11 +18,17 @@ public:
     Maillage(int n, int m, const Point<T>& origin);
 
     typename C<Triangle<T> >::const_iterator beginiter() const;
-
     typename C<Triangle<T> >::const_iterator enditer() const;
-
+    void transformer( double m11, double m12, double m21, double m22 );
+    void deplacer( double dx, double dy );
+    void tourner( double angle, const Point<T>& pt );
 
 };
+
+template <typename T ,template <typename = Triangle<T>, typename = std::allocator<Triangle< T > > > class C>
+std::ostream & operator << ( std::ostream &flux, Maillage<T,C> M );
+
+
 
 #include "Maillage.tpp"
 
