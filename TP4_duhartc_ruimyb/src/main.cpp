@@ -39,7 +39,7 @@ int main() {
     std::cout << m1 << "\n";
 
     //Test perf
-    Maillage <double, std::vector> m(1000,1000, Point<double>(0,0));
+    Maillage <double, std::vector> m4(1000,1000, Point<double>(0,0));
 
 
 
