@@ -1,26 +1,15 @@
-DOCC=doxygen
-CXX = g++
-CXXFLAGS = -Wall -g
+.PHONY : all doc clean check
 
-REFDIR=.
-SRCDIR=$(REFDIR)/src
-DOCDIR=$(REFDIR)/docu
-CSOURCE = $(SRCDIR)/main.cpp $(SRCDIR)/Dvector.cpp
-PROG =$(SRCDIR)/Dvector
-OBJS = $(SRCDIR)/Dvector.o $(SRCDIR)/main.o
+all :
+		( cd src && $(MAKE) $@)
 
-all: docu check 
 
-$(SRCDIR)/Dvector: $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
+doc : 
+		(cd docu && $(MAKE) $@)
 
-$(DOCDIR)/html/documentation.html: $(DOCDIR)/Doxyfile $(CSOURCE) 
-	$(DOCC) $(DOCDIR)/Doxyfile
+clean : 
+		(cd src && $(MAKE) $@)
+		(cd docu && $(MAKE) $@)
 
-check: $(SRCDIR)/Dvector
-
-doc: $(CSOURCE) 
-	doxygen Doxyfile
-
-clean:
-	rm -rf $(DOCDIR)/html/* $(SRCDIR)/*.o $(PROG)
+check :
+		(cd src && $(MAKE) $@)

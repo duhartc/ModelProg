@@ -1,5 +1,5 @@
 //
-// Created by Ruimy Benjamin Mac on 24/03/2016.
+// Created by Ruimy Benjamin Mac & Duhart Claudia 24/03/2016.
 //
 
 #ifndef TP4_DUHARTC_RUIMYB_TRIANGLE_H
@@ -14,22 +14,44 @@ private:
     Point<T> P3;
 public:
     Triangle(const Point<T>& A, const Point<T>& B, const Point<T>& C);
-
+    /*!
+    *  \brief Getteur du premier point du triangle
+    *
+    *  Méthode permettant de récupérer la valeur de l'attribut P1 de la classe Triangle
+    *
+    */
     Point<T> p1();
 
+    /*!
+    *  \brief Getteur du second point du triangle
+    *
+    *  Méthode permettant de récupérer la valeur de l'attribut P2 de la classe Triangle
+    *
+    */
     Point<T> p2();
 
+    /*!
+    *  \brief Getteur du second point du triangle
+    *
+    *  Méthode permettant de récupérer la valeur de l'attribut P3 de la classe Triangle
+    *
+    */
     Point<T> p3();
 
-    void setP1(Point<T> a);
-
-    void setP2(Point<T> a);
-
-    void setP3(Point<T> a);
-
-
+    /*!
+    *  \brief Methode transformer
+    *
+    *  Méthode permettant d'effectuer une transformation affine de la classe Triangle
+    *
+    */
     void transformer( double m11, double m12, double m21, double m22 );
 
+    /*!
+    *  \brief Methode deplacer
+    *
+    *  Méthode permettant d'effectuer une translation de la classe Triangle
+    *
+    */
     void deplacer( double dx, double dy );
 
     void tourner( double angle, const Point<T>& pt );
