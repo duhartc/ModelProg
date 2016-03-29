@@ -1,0 +1,16 @@
+Question 1 : 
+
+Le constructeur de maille a été testé pour différente valeur, et nous constatons que le coût en temps est linéaire. 
+
+Question 2 : 
+
+Le constructeur a été testé avec des trois conteneurs différents : 
+list
+vector 
+deque 
+
+Au vu des résultats que nous avons obtenus, deque semble être le plus performant ( en revanche la différence avec list est très faible ). 
+vector est moins performante. 
+
+
+

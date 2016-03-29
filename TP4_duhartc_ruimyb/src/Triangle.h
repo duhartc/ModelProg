@@ -13,6 +13,12 @@ private:
     Point<T> P2;
     Point<T> P3;
 public:
+    /*!
+    *  \brief Constructeur de la classe Triangle
+    *
+    *  Construction d'un triangle à partir de trois points.
+    *
+    */
     Triangle(const Point<T>& A, const Point<T>& B, const Point<T>& C);
     /*!
     *  \brief Getteur du premier point du triangle
@@ -54,6 +60,12 @@ public:
     */
     void deplacer( double dx, double dy );
 
+    /*!
+    *  \brief Methode tourner
+    *
+    *  Méthode permettant d'effectuer une rotation par rapport à un point de la classe Triangle
+    *
+    */
     void tourner( double angle, const Point<T>& pt );
 
 };

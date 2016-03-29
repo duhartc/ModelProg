@@ -2,11 +2,14 @@
 #include "Point.h"
 #include "Triangle.h"
 #include "Maillage.h"
-
+#include <sstream>
 
 int main() {
 
     typedef float MonType;
+
+
+
 
     Point<MonType> A(1,1);
     Point<MonType > B(1,2);
@@ -24,7 +27,7 @@ int main() {
     std::cout << m;
 
     std::cout << "Test deplacer OK \n";
-    T1.deplacer(2.2,2.2);
+    m.deplacer(2.2,2.2);
     std::cout << m;
 
     std::cout << "Test tourner OK \n";
@@ -33,10 +36,14 @@ int main() {
 
 
     Maillage<float, std::vector> m1( Point<float>(2,3), Point<float>(7,3), Point<float>(7,6), Point<float>(2,6), 2, 3 );
-    std::cout << m1 << "\n YO";
+    std::cout << m1 << "\n";
 
     //Test perf
-    //Maillage <double, std::vector> m(1000000,1000000, Point<double>(0,0));
+    Maillage <double, std::vector> m(1000,1000, Point<double>(0,0));
+
+
+
+
 
     return 0;
 }
